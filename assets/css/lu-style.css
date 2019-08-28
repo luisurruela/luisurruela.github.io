@@ -1,0 +1,33 @@
+body {
+    font-size: 14px;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+h1 {
+    font-size: 5.8em;
+    font-weight: bold; 
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 7px rgba(0, 0, 0, 0.65);  
+}
+
+h2 {
+    font-size: 2.4em;
+    font-weight: 100;
+}
+
+#hero {
+    position: absolute;
+    top: 30%;
+    z-index: 1000;
+}
+
+ @media (max-width: 768px) {
+     
+    h1 {
+         font-size: 3em;
+    }
+
+    h2 {
+        font-size: 1.8em;
+    }
+ }
