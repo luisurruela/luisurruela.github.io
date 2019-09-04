@@ -84,7 +84,7 @@ h2 {
     border: 2px solid #781caa !important;
     transform: scale(1.1);
     -webkit-animation: scale-up-center 0.4s cubic-bezier(0.785, 0.135, 0.150, 0.860) infinite alternate both;
-	        animation: scale-up-center 0.4s cubic-bezier(0.785, 0.135, 0.150, 0.860) infinite alternate both;
+	animation: scale-up-center 0.4s cubic-bezier(0.785, 0.135, 0.150, 0.860) infinite alternate both;
 }
 
  @media (max-width: 768px) {
