@@ -24,14 +24,18 @@ h2 {
      
     h1 {
          font-size: 1.4em;
-         font-weight: 600;
+         font-weight: 100;
+         margin: 0;
+         padding: 0;
     }
 
     h1 span {
-        font-size: 2em;
+        font-size: 2.2em;
+        font-weight: 500;
     }
 
     h2 {
-        font-size: 1.2em;
+        font-size: 1em;
+        font-weight: 500;
     }
  }
