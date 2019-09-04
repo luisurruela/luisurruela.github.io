@@ -20,6 +20,21 @@ h2 {
     z-index: 1000;
 }
 
+/* Bootstrap */
+
+.btn-outline-primary {
+    border: 2px solid #781caa !important;
+    color: #5d088a;
+    transition: 0.3s;
+    font-weight: 500;
+}
+
+.btn-outline-primary:hover {
+    background-color: #5d088a !important;
+    border: 2px solid #781caa !important;
+    color: white;
+}
+
  @media (max-width: 768px) {
      
     h1 {
