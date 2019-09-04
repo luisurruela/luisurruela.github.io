@@ -33,8 +33,8 @@ canvas{
 #particles-js{
   width: 100%;
   height: 100vh;
-  background: rgb(100,65,165);
-  background-image: linear-gradient(to right top, #cd05e0, #a747ee, #7d60f4, #506ff3, #127aeb);
+  background: rgb(93,8,138);
+  background: linear-gradient(180deg, rgba(93,8,138,1) 10%, rgba(80,168,244,1) 66%, rgba(64,229,245,1) 81%, rgba(255,255,255,1) 96%);
   background-repeat: no-repeat;
   z-index: -1000;
 }
