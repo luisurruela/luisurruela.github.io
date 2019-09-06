@@ -12,6 +12,9 @@
 <link href="https://fonts.googleapis.com/css?family=Arimo:400,400i,700,700i&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Barlow:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900&display=swap"
     rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="assets/css/slick.css"/>
+<link rel="stylesheet" type="text/css" href="assets/css/slick-theme.css"/>
 <title>Luis Urruela | Software engineer freelance from México</title>
 </head>
 <body>
@@ -21,14 +24,22 @@
             <div id="hero-content" class="text-white text-center">
                 <h1>Hola! Soy<br><span> Luis Urruela</span></h1>
                 <h2>Web Developer & UI/UX Designer</h2>
-                <div id="btn-contact" class="mt-5">
-                    <a href="https://wa.me/529932090424" target="_blank" class="btn btn-primary pl-4 pr-4">Contáctame</a>
-                </div>
+                <div id="btn-contact" class="mt-5 d-none d-md-block"><a href="https://wa.me/529932090424" target="_blank" class="btn btn-primary pl-5 pr-5 pt-2 pb-2 btn-lg">Contáctame</a></div>
+                <div id="btn-contact" class="mt-5 d-block d-md-none"><a href="https://wa.me/529932090424" target="_blank" class="btn btn-primary pl-4 pr-4 pt-2 pb-2">Contáctame</a></div>
             </div>
         </div>  
     </header>
 
-    <section id="projects">
+    <section id="portfolio">
+        <div class="container">
+            <div class="projects">
+                <div><img src="assets/img/slider/code-1076536_1280.jpg" class="img-fluid"></div>
+                <div><img src="assets/img/slider/creativity-819371_1280.jpg" class="img-fluid"></div>
+                <div><img src="assets/img/slider/imac-1999636_1280.png" class="img-fluid"></div>
+                <div><img src="assets/img/slider/plans-1867745_1280.jpg" class="img-fluid"></div>
+                <div><img src="assets/img/slider/web-1738168_1280.jpg" class="img-fluid"></div>
+            </div>
+        </div>
     </section>
 
     <section id="services">
@@ -45,6 +56,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script src="assets/js/particles.min.js"></script>
 <script src="assets/js/app.js"></script>
+<script src="assets/js/slick.min.js"></script>
 <script src="assets/js/lu-main-scripts.js"></script>
 </body>
 </html>
