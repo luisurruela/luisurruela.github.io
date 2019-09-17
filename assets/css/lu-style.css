@@ -27,6 +27,11 @@ h2 {
     z-index: 1000;
 }
 
+.card p {
+    font-size: 1.2em;
+    line-height: 1.4em;
+}
+
 /* Animations */
 
 /* ----------------------------------------------

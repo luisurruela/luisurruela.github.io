@@ -38,3 +38,7 @@ canvas{
   background-repeat: no-repeat;
   z-index: -1000;
 }
+
+.card {
+  min-height: 240px;
+}
