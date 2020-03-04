@@ -32,6 +32,11 @@ h2 {
     line-height: 1.4em;
 }
 
+.read-more {
+    position: absolute;
+    bottom: 30px;
+}
+
 /* Animations */
 
 /* ----------------------------------------------
