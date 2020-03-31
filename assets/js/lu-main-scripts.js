@@ -2,7 +2,7 @@
 
 window.addEventListener('DOMContentLoaded', function() {
 
-    $('.projects').slick({
+    /* $('.projects').slick({
         dots: true,
         infinite: true,
         speed: 500,
@@ -11,6 +11,6 @@ window.addEventListener('DOMContentLoaded', function() {
         autoplay: true,
         adaptiveHeight: true,
         autoplaySpeed: 2500
-    });
+    }); */
 
 });
