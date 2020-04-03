@@ -1,0 +1,49 @@
+html {
+    height: 100%;
+}
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+h1 {font-size: 50px; font-weight: 700;}
+h2 {font-size: 22px; font-weight: 300;}
+h3 {font-size: 18px; font-weight: 400;}
+
+.btn-success {
+    background-color: #5750BC;
+    border: none !important;
+}
+
+.bg-light {
+    background-color: #F5F5F5 !important;
+}
+
+.card {
+    border: none;
+}
+
+#services {
+    margin-top: -250px;
+    padding: 280px 0 60px;
+}
+
+/* -----
+SVG Icons - svgicons.sparkk.fr
+----- */
+
+.svg-icon {
+  width: 3em;
+  height: 3em;
+}
+
+.svg-icon path,
+.svg-icon polygon,
+.svg-icon rect {
+  fill: #483FA3;
+}
+
+.svg-icon circle {
+  stroke: #483FA3;
+  stroke-width: 1;
+}
