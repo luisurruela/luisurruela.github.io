@@ -3,6 +3,7 @@ html {
 }
 
 body {
+    color: #333333;
     font-family: 'Noto Sans JP', sans-serif;
 }
 
@@ -21,6 +22,10 @@ h3 {font-size: 18px; font-weight: 400;}
 
 .card {
     border: none;
+}
+
+.navbar {
+    font-size: 0.8em;
 }
 
 #services {
@@ -46,4 +51,22 @@ SVG Icons - svgicons.sparkk.fr
 .svg-icon circle {
   stroke: #483FA3;
   stroke-width: 1;
+}
+
+/* Media */
+
+@media screen and (max-width: 768px) {
+    h1 {font-size: 20px;}
+    h2 {font-size: 14px;}
+    h3 {font-size: 14px;}
+    
+    #services {
+        margin-top: -50px;
+        padding: 60px 0 30px;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1199px) {
+    h1 {font-size: 40px;}
+    h2 {font-size: 18px;}
 }
