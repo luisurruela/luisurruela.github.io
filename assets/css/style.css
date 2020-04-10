@@ -11,6 +11,8 @@ body {
 h1 {font-size: 50px; font-weight: 700;}
 h2 {font-size: 22px; font-weight: 300;}
 h3 {font-size: 18px; font-weight: 400;}
+.text-logo {font-family: 'Noto Sans JP', sans-serif !important;}
+.text-purple{color: #483FA3;}
 
 #logo-svg {
     width: 37px;
@@ -112,6 +114,10 @@ SVG Icons - svgicons.sparkk.fr
     background-color: #5750bc;
     border-radius: 50%;
     color: #ffffff;
+}
+
+#logo-bottom svg {
+    width: 50px;
 }
 
 /* Media */
