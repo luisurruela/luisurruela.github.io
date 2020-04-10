@@ -18,7 +18,7 @@ h3 {font-size: 18px; font-weight: 400;}
 
 .avatar img {
     border-radius: 50%;
-    width: 240px;
+    width: 220px;
 }
 
 .divider {
@@ -33,6 +33,33 @@ h3 {font-size: 18px; font-weight: 400;}
 .btn-success {
     background-color: #5750BC;
     border: none !important;
+    font-size: 1em;
+    transition: .4s;
+}
+
+.navbar-brand {
+    font-family: 'Teko', sans-serif;
+    font-size: 1.8em;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.navbar-brand span {
+    color: #483FA3;
+}
+
+.nav-item {
+    border-bottom: 2px solid #ffffff;
+    transition: .6s;
+}
+
+.nav-item:hover {
+    border-bottom: 2px solid #483FA3;
+}
+
+.btn-success:hover {
+    background-color: #483FA3;
+    border: none;
 }
 
 .bg-light {
@@ -70,6 +97,21 @@ SVG Icons - svgicons.sparkk.fr
 .svg-icon circle {
   stroke: #483FA3;
   stroke-width: 1;
+}
+
+#social a {
+    color: #483FA3;
+    display: block;
+    height: 30px;
+    line-height: 30px;
+    width: 30px;
+    transition: .3s;
+}
+
+#social a:hover {
+    background-color: #5750bc;
+    border-radius: 50%;
+    color: #ffffff;
 }
 
 /* Media */
