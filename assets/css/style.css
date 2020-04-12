@@ -18,9 +18,34 @@ h3 {font-size: 18px; font-weight: 400;}
     width: 37px;
 }
 
+.title-primary{font-size: 22px; font-weight: 300;}
+.title-secondary{font-size: 40px; font-weight: 700;}
+
 .avatar img {
     border-radius: 50%;
     width: 220px;
+}
+
+.text-quote {
+    display: block;
+    font-size: 35px;
+    clear: right;
+}
+
+.text-quote-author {
+    display: block;
+    font-size: 1.2em;
+}
+
+.divisor {
+    background-color: #5750bc;
+    height: 5px;
+    margin: 30px auto;
+    width: 100px;
+}
+
+.icon-primary {
+    font-size: 60px;
 }
 
 .divider {
