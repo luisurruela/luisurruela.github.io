@@ -64,6 +64,8 @@ h3 {font-size: 18px; font-weight: 400;}
     transition: .4s;
 }
 
+.avatar-sm {width: 160px !important;}
+
 .navbar-brand {
     font-family: 'Teko', sans-serif;
     font-size: 1.8em;
@@ -147,10 +149,20 @@ SVG Icons - svgicons.sparkk.fr
 
 /* Media */
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
+    body {font-size: 13px;}
     h1 {font-size: 20px;}
     h2 {font-size: 14px;}
     h3 {font-size: 14px;}
+
+    .title-primary{font-size: 14px; font-weight: 300;}
+    .title-secondary{font-size: 20px; font-weight: 700;}
+    .lead {font-size: 13px}
+    .text-quote {font-size: 20px;}
+    .text-quote-author {font-size: 1em;}
+
+    #ventajas h4{font-size: 1.3em; font-weight: 600;}
+    .svg {margin: -30px auto !important;}
     
     #services {
         margin-top: -50px;
@@ -158,7 +170,35 @@ SVG Icons - svgicons.sparkk.fr
     }
 }
 
-@media screen and (min-width: 769px) and (max-width: 1199px) {
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    body {font-size: 14px;}
+    .text-quote {font-size: 1.6em;}
+    .text-quote-author {font-size: 1em;}
+    .title-primary{font-size: 1.3em; font-weight: 300;}
+    .title-secondary{font-size: 2em; font-weight: 700;}
+    .lead {font-size: 1.2em}
+    #ventajas h4{font-size: 1.1em;}
+    .svg {margin: -30px auto;}
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1199px) {
+    body {font-size: 0.9em;}
     h1 {font-size: 40px;}
-    h2 {font-size: 18px;}
+    h2 {font-size: 14px;}
+    h3 {font-size: 14px;}
+    .lead {font-size: 1.2em}
+    .title-primary{font-size: 1.3em; font-weight: 300;}
+    .title-secondary{font-size: 2.4em; font-weight: 700;}
+    .text-quote {font-size: 1.8em;}
+    .text-quote-author {font-size: 1em;}
+    .svg {margin: -40px auto;}
+    img.avatar-sm {width: 160px !important;}
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1440px) {
+    .svg {margin: -51px auto;}
+}
+
+@media screen and (min-width: 1441px) {
+    .svg {margin: -31px auto; width: 800px;}
 }
