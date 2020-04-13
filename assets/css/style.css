@@ -23,7 +23,7 @@ h3 {font-size: 18px; font-weight: 400;}
 
 .avatar img {
     border-radius: 50%;
-    width: 220px;
+    width: 180px;
 }
 
 .text-quote {
@@ -157,7 +157,7 @@ SVG Icons - svgicons.sparkk.fr
 
     .title-primary{font-size: 14px; font-weight: 300;}
     .title-secondary{font-size: 20px; font-weight: 700;}
-    .lead {font-size: 13px}
+    .lead {font-size: 14px}
     .text-quote {font-size: 20px;}
     .text-quote-author {font-size: 1em;}
 
