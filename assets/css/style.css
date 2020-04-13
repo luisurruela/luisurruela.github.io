@@ -200,5 +200,8 @@ SVG Icons - svgicons.sparkk.fr
 }
 
 @media screen and (min-width: 1441px) {
+    body {font-size: 1.1em;}
+    .title-primary{font-size: 1.2em; font-weight: 300;}
+    .title-secondary{font-size: 3em; font-weight: 700;}
     .svg {margin: -31px auto; width: 800px;}
 }
