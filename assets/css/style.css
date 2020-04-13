@@ -64,6 +64,17 @@ h3 {font-size: 18px; font-weight: 400;}
     transition: .4s;
 }
 
+.btn-outline-success {
+    border: 1px solid #5750bc;
+    color: #483FA3;
+}
+
+.btn-outline-success:hover {
+    background-color: #5750BC;
+    border: 1px solid #483FA3 !important;
+    transition: .4s;
+}
+
 .avatar-sm {width: 160px !important;}
 
 .navbar-brand {
@@ -157,7 +168,7 @@ SVG Icons - svgicons.sparkk.fr
 
     .title-primary{font-size: 14px; font-weight: 300;}
     .title-secondary{font-size: 20px; font-weight: 700;}
-    .lead {font-size: 14px}
+    .lead {font-size: 15px}
     .text-quote {font-size: 20px;}
     .text-quote-author {font-size: 1em;}
 
