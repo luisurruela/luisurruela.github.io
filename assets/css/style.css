@@ -7,16 +7,21 @@ body {
     font-family: 'Noto Sans JP', sans-serif;
     font-size: 15px;
 }
-
+a {color: #333333;transition: 0.2s; font-weight: 500;}
+a:hover{color:#000000; border-bottom: 5px solid #FEA911; text-decoration: none;}
 h1 {font-size: 50px; font-weight: 700;}
 h2 {font-size: 22px; font-weight: 300;}
 h3 {font-size: 18px; font-weight: 400;}
-.text-logo {font-family: 'Noto Sans JP', sans-serif !important;}
+
+.text-logo {font-family: 'Noto Sans JP', sans-serif;}
 .text-purple{color: #483FA3;}
 
 #logo-svg {
     width: 37px;
 }
+
+.text-warning {color:#FEA911;}
+.text-yellow {color: #000000; background-color: #FAC017; border-radius: 4px; padding: 0px 5px; font-weight: 700;}
 
 .title-primary{font-size: 22px; font-weight: 300;}
 .title-secondary{font-size: 40px; font-weight: 700;}
@@ -31,6 +36,8 @@ h3 {font-size: 18px; font-weight: 400;}
     font-size: 35px;
     clear: right;
 }
+
+.bg-purple {background-color: #B7B3F1;}
 
 .text-quote-author {
     display: block;
@@ -88,6 +95,10 @@ h3 {font-size: 18px; font-weight: 400;}
     color: #483FA3;
 }
 
+.navbar a:hover {
+    border: 0px;
+}
+
 .nav-item {
     border-bottom: 2px solid #ffffff;
     transition: .6s;
@@ -109,6 +120,9 @@ h3 {font-size: 18px; font-weight: 400;}
 .card {
     border: none;
 }
+
+h3.card-title {font-size: 1.8em; font-weight: 500;}
+span.title{display:block; font-size: 1.3em; font-weight: 600; margin-bottom: 5px;}
 
 .navbar {
     font-size: 0.9em;
@@ -208,10 +222,15 @@ SVG Icons - svgicons.sparkk.fr
 
 @media screen and (min-width: 1200px) and (max-width: 1440px) {
     .svg {margin: -51px auto;}
+    h3.card-title {font-size: 1.7em; font-weight: 500;}
 }
 
 @media screen and (min-width: 1441px) {
-    body {font-size: 1.1em;}
+    body {font-size: 1em;}
+    h1 {font-size: 60px;}
+    h2 {font-size: 20px;}
+    h3 {font-size: 20px;}
+    h3.card-title {font-size: 1.8em; font-weight: 500;}
     .title-primary{font-size: 1.2em; font-weight: 300;}
     .title-secondary{font-size: 3em; font-weight: 700;}
     .svg {margin: -31px auto; width: 800px;}
