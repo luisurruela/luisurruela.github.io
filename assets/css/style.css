@@ -101,12 +101,12 @@ h3 {font-size: 18px; font-weight: 400;}
 }
 
 .nav-item {
-    border-bottom: 2px solid #ffffff;
+    border-bottom: 4px solid #ffffff;
     transition: .6s;
 }
 
 .nav-item:hover {
-    border-bottom: 2px solid #483FA3;
+    border-bottom: 4px solid #483FA3;
 }
 
 .btn-success:hover {
