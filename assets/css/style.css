@@ -13,7 +13,8 @@ h1 {font-size: 50px; font-weight: 700;}
 h2 {font-size: 22px; font-weight: 300;}
 h3 {font-size: 18px; font-weight: 400;}
 
-.text-logo {font-family: 'Noto Sans JP', sans-serif;}
+.text-lg {font-size: 2.8em;}
+.text-logo {font-family: 'Teko', sans-serif !important;}
 .text-purple{color: #483FA3;}
 
 #logo-svg {
