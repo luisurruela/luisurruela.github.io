@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    color: #333333;
+    color: #404040;
     font-family: 'Noto Sans JP', sans-serif;
     font-size: 15px;
 }
@@ -232,7 +232,7 @@ SVG Icons - svgicons.sparkk.fr
     h2 {font-size: 20px;}
     h3 {font-size: 20px;}
     h3.card-title {font-size: 1.8em; font-weight: 500;}
-    .title-primary{font-size: 1.25em; font-weight: 300;}
+    .title-primary{font-size: 1.15em; font-weight: 300;}
     .title-secondary{font-size: 3.75em; font-weight: 700;}
     .svg {margin: -31px auto; width: 800px;}
 }
