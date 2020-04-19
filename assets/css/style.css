@@ -177,12 +177,12 @@ SVG Icons - svgicons.sparkk.fr
 
 @media screen and (max-width: 767px) {
     body {font-size: 14px;}
-    h1 {font-size: 20px;}
+    h1 {font-size: 32px;}
     h2 {font-size: 14px;}
     h3 {font-size: 14px;}
 
     .title-primary{font-size: 14px; font-weight: 300;}
-    .title-secondary{font-size: 20px; font-weight: 700;}
+    .title-secondary{font-size: 32px; font-weight: 700;}
     .lead {font-size: 15px}
     .text-quote {font-size: 20px;}
     .text-quote-author {font-size: 1em;}
@@ -227,12 +227,12 @@ SVG Icons - svgicons.sparkk.fr
 }
 
 @media screen and (min-width: 1441px) {
-    body {font-size: 1em;}
+    body {font-size: 1.1em;}
     h1 {font-size: 60px;}
     h2 {font-size: 20px;}
     h3 {font-size: 20px;}
     h3.card-title {font-size: 1.8em; font-weight: 500;}
     .title-primary{font-size: 1.25em; font-weight: 300;}
-    .title-secondary{font-size: 3em; font-weight: 700;}
+    .title-secondary{font-size: 3.75em; font-weight: 700;}
     .svg {margin: -31px auto; width: 800px;}
 }
