@@ -222,8 +222,14 @@ SVG Icons - svgicons.sparkk.fr
 }
 
 @media screen and (min-width: 1200px) and (max-width: 1440px) {
-    .svg {margin: -51px auto;}
+    h1 {font-size: 60px;}
+    h2 {font-size: 20px;}
+    h3 {font-size: 20px;}
+    h3.card-title {font-size: 1.8em; font-weight: 500;}
+    .title-primary{font-size: 1.15em; font-weight: 300;}
+    .title-secondary{font-size: 3.75em; font-weight: 700;}
     h3.card-title {font-size: 1.7em; font-weight: 500;}
+    .svg {margin: -51px auto;}
 }
 
 @media screen and (min-width: 1441px) {
