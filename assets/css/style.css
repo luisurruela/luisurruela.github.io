@@ -1,41 +1,244 @@
-/* =============================================================================
-   HTML5 CSS Reset Minified - Eric Meyer
-   ========================================================================== */
-
-html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;}
-
-/* =============================================================================
-   My CSS
-   ========================================================================== */
-
-/* ---- base ---- */
-
-html,body{ 
-	width:100%;
-	height:100%;
+html {
+    height: 100%;
 }
 
-html{
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+body {
+    color: #404040;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 15px;
+}
+a {color: #333333;transition: 0.2s; font-weight: 500;}
+a:hover{color:#000000; border-bottom: 5px solid #FEA911; text-decoration: none;}
+h1 {font-size: 50px; font-weight: 700;}
+h2 {font-size: 22px; font-weight: 300;}
+h3 {font-size: 18px; font-weight: 400;}
+
+.text-lg {font-size: 2.8em;}
+.text-logo {font-family: 'Teko', sans-serif !important;}
+.text-purple{color: #483FA3;}
+
+#logo-svg {
+    width: 37px;
 }
 
-body{
-  font:normal 75% Arial, Helvetica, sans-serif;
+.text-warning {color:#FEA911;}
+.text-yellow {color: #000000; background-color: #FAC017; border-radius: 1px; padding: 0px 5px; font-weight: 700;}
+
+.title-primary{font-size: 22px; font-weight: 300;}
+.title-secondary{font-size: 40px; font-weight: 700;}
+
+.avatar img {
+    border-radius: 50%;
+    width: 180px;
 }
 
-canvas{
-  display:block;
-  vertical-align: bottom;
+.text-quote {
+    display: block;
+    font-size: 35px;
+    clear: right;
 }
 
-/* ---- particles.js container ---- */
+.bg-purple {background-color: #EEE9F1;}
 
-#particles-js{
-  width: 100%;
-  height: 100vh;
-  background: rgb(93,8,138);
-  background: linear-gradient(180deg, rgba(93,8,138,1) 10%, rgba(80,168,244,1) 66%, rgba(64,229,245,1) 81%, rgba(255,255,255,1) 96%);
-  background-repeat: no-repeat;
-  z-index: -1000;
+.text-quote-author {
+    display: block;
+    font-size: 1.2em;
 }
 
+.divisor {
+    background-color: #5750bc;
+    height: 5px;
+    margin: 30px auto;
+    width: 100px;
+}
+
+.icon-primary {
+    font-size: 60px;
+}
+
+.divider {
+    background-color: #5750bc;
+    height: 10px;
+}
+
+#about h1 {font-size: 1.5em;}
+#about p {font-size: 1em;}
+#about strong {font-weight: 500;}
+
+.btn-success {
+    background-color: #5750BC;
+    border: none !important;
+    font-size: 1em;
+    transition: .4s;
+}
+
+.btn-outline-success {
+    border: 1px solid #5750bc;
+    color: #483FA3;
+}
+
+.btn-outline-success:hover {
+    background-color: #5750BC;
+    border: 1px solid #483FA3 !important;
+    transition: .4s;
+}
+
+.avatar-sm {width: 160px !important;}
+
+.navbar-brand {
+    font-family: 'Teko', sans-serif;
+    font-size: 1.8em;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.navbar-brand span {
+    color: #483FA3;
+}
+
+.navbar a:hover {
+    border: 0px;
+}
+
+.nav-item {
+    border-bottom: 4px solid #ffffff;
+    transition: .6s;
+}
+
+.nav-item:hover {
+    border-bottom: 4px solid #483FA3;
+}
+
+.btn-success:hover {
+    background-color: #483FA3;
+    border: none;
+}
+
+.bg-light {
+    background-color: #F5F5F5 !important;
+}
+
+.card {
+    border: none;
+}
+
+h3.card-title {font-size: 1.8em; font-weight: 500;}
+span.title{display:block; font-size: 1.3em; font-weight: 600; margin-bottom: 5px;}
+
+.navbar {
+    font-size: 0.9em;
+}
+
+#services {
+    margin-top: -250px;
+    padding: 280px 0 60px;
+}
+
+/* -----
+SVG Icons - svgicons.sparkk.fr
+----- */
+
+.svg-icon {
+  width: 3em;
+  height: 3em;
+}
+
+.svg-icon path,
+.svg-icon polygon,
+.svg-icon rect {
+  fill: #483FA3;
+}
+
+.svg-icon circle {
+  stroke: #483FA3;
+  stroke-width: 1;
+}
+
+#social a {
+    color: #483FA3;
+    display: block;
+    height: 30px;
+    line-height: 30px;
+    width: 30px;
+    transition: .3s;
+}
+
+#social a:hover {
+    background-color: #5750bc;
+    border-radius: 50%;
+    color: #ffffff;
+}
+
+#logo-bottom svg {
+    width: 50px;
+}
+
+/* Media */
+
+@media screen and (max-width: 767px) {
+    body {font-size: 14px;}
+    h1 {font-size: 32px;}
+    h2 {font-size: 14px;}
+    h3 {font-size: 14px;}
+
+    .title-primary{font-size: 14px; font-weight: 300;}
+    .title-secondary{font-size: 32px; font-weight: 700;}
+    .lead {font-size: 15px}
+    .text-quote {font-size: 20px;}
+    .text-quote-author {font-size: 1em;}
+
+    #ventajas h4{font-size: 1.3em; font-weight: 600;}
+    .svg {margin: -30px auto !important;}
+    
+    #services {
+        margin-top: -50px;
+        padding: 60px 0 30px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    body {font-size: 14px;}
+    .text-quote {font-size: 1.6em;}
+    .text-quote-author {font-size: 1em;}
+    .title-primary{font-size: 1.3em; font-weight: 300;}
+    .title-secondary{font-size: 2em; font-weight: 700;}
+    .lead {font-size: 1.2em}
+    #ventajas h4{font-size: 1.1em;}
+    .svg {margin: -30px auto;}
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1199px) {
+    body {font-size: 0.9em;}
+    h1 {font-size: 40px;}
+    h2 {font-size: 14px;}
+    h3 {font-size: 14px;}
+    .lead {font-size: 1.2em}
+    .title-primary{font-size: 1.3em; font-weight: 300;}
+    .title-secondary{font-size: 2.4em; font-weight: 700;}
+    .text-quote {font-size: 1.8em;}
+    .text-quote-author {font-size: 1em;}
+    .svg {margin: -40px auto;}
+    img.avatar-sm {width: 160px !important;}
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1440px) {
+    h1 {font-size: 60px;}
+    h2 {font-size: 20px;}
+    h3 {font-size: 20px;}
+    h3.card-title {font-size: 1.8em; font-weight: 500;}
+    .title-primary{font-size: 1.15em; font-weight: 300;}
+    .title-secondary{font-size: 3.75em; font-weight: 700;}
+    h3.card-title {font-size: 1.7em; font-weight: 500;}
+    .svg {margin: -51px auto;}
+}
+
+@media screen and (min-width: 1441px) {
+    body {font-size: 1.1em;}
+    h1 {font-size: 60px;}
+    h2 {font-size: 20px;}
+    h3 {font-size: 20px;}
+    h3.card-title {font-size: 1.8em; font-weight: 500;}
+    .title-primary{font-size: 1.15em; font-weight: 300;}
+    .title-secondary{font-size: 3.75em; font-weight: 700;}
+    .svg {margin: -31px auto; width: 800px;}
+}
