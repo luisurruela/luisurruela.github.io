@@ -4,6 +4,7 @@ html {
 
 body {
     font-family: 'Noto Sans JP', sans-serif;
+    color: #343A3F;
 }
 
 h1 {
@@ -12,6 +13,29 @@ h1 {
 }
 
 h2 {
-    color: dimgray;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+}
+
+.bg-purple {
+    background-color: #5000CA;
+}
+
+.bg-purple a {
+    color:ghostwhite;
+    text-decoration: none;
+}
+
+.text-purple {
+    color: #5000CA;
+}
+
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 0.9em;
+    }
 }
