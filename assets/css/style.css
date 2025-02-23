@@ -5,13 +5,13 @@ html {
 body {
     color: #404040;
     font-family: 'Noto Sans JP', sans-serif;
-    font-size: 15px;
+    font-size: 14px;
 }
 a {color: #333333;transition: 0.2s; font-weight: 500;}
 a:hover{color:#000000; border-bottom: 5px solid #FEA911; text-decoration: none;}
-h1 {font-size: 50px; font-weight: 700;}
-h2 {font-size: 22px; font-weight: 300;}
-h3 {font-size: 18px; font-weight: 400;}
+h1 {font-size: 50px; font-weight: 700; letter-spacing: -1px;}
+h2 {font-size: 22px; font-weight: 300; letter-spacing: -1px;}
+h3 {font-size: 18px; font-weight: 400; letter-spacing: -1px;}
 
 .text-lg {font-size: 2.8em;}
 .text-logo {font-family: 'Teko', sans-serif !important;}
@@ -231,18 +231,18 @@ SVG Icons - svgicons.sparkk.fr
     h3 {font-size: 20px;}
     h3.card-title {font-size: 1.8em; font-weight: 500;}
     .title-primary{font-size: 1.15em; font-weight: 300;}
-    .title-secondary{font-size: 3.75em; font-weight: 700;}
+    .title-secondary{font-size: 2.8em; font-weight: 700; letter-spacing: -1px;}
     h3.card-title {font-size: 1.7em; font-weight: 500;}
     .svg {margin: -51px auto;}
 }
 
 @media screen and (min-width: 1441px) {
-    body {font-size: 1.1em;}
-    h1 {font-size: 60px;}
+    body {font-size: 1em;}
+    h1 {font-size: 3.2em;}
     h2 {font-size: 20px;}
     h3 {font-size: 20px;}
     h3.card-title {font-size: 1.8em; font-weight: 500;}
     .title-primary{font-size: 1.15em; font-weight: 300;}
-    .title-secondary{font-size: 3.75em; font-weight: 700;}
+    .title-secondary{font-size: 2.8em; font-weight: 700;}
     .svg {margin: -31px auto; width: 800px;}
 }
