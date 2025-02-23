@@ -21,6 +21,10 @@ h3 {font-size: 18px; font-weight: 400;}
     width: 37px;
 }
 
+.cls-1 {
+    fill: #5956a4 !important;
+}
+
 .text-warning {color:#FEA911;}
 .text-yellow {color: #000000; background-color: #FAC017; border-radius: 1px; padding: 0px 5px; font-weight: 700;}
 
@@ -146,11 +150,11 @@ SVG Icons - svgicons.sparkk.fr
 .svg-icon path,
 .svg-icon polygon,
 .svg-icon rect {
-  fill: #483FA3;
+  fill: #483FA3 !important;
 }
 
 .svg-icon circle {
-  stroke: #483FA3;
+  stroke: #483FA3 !important;
   stroke-width: 1;
 }
 
