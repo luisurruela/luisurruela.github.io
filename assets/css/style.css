@@ -40,9 +40,12 @@ h3 {font-size: 18px; font-weight: 400; letter-spacing: -1px;}
     display: block;
     font-size: 35px;
     clear: right;
+    font-weight: bolder;
+    line-height: 1.1em;
 }
 
 .bg-purple {background-color: #EEE9F1;}
+.bg-dark-purple {background-color: #483FA3;}
 
 .text-quote-author {
     display: block;
@@ -134,7 +137,7 @@ span.title{display:block; font-size: 1.3em; font-weight: 600; margin-bottom: 5px
 }
 
 #services {
-    margin-top: -250px;
+    margin-top: -72px;
     padding: 280px 0 60px;
 }
 
@@ -188,21 +191,21 @@ SVG Icons - svgicons.sparkk.fr
     .title-primary{font-size: 14px; font-weight: 300;}
     .title-secondary{font-size: 32px; font-weight: 700;}
     .lead {font-size: 15px}
-    .text-quote {font-size: 20px;}
+    .text-quote {font-size: 20px; font-weight: bolder;}
     .text-quote-author {font-size: 1em;}
 
     #ventajas h4{font-size: 1.3em; font-weight: 600;}
     .svg {margin: -30px auto !important;}
     
     #services {
-        margin-top: -50px;
+        margin-top: -22px;
         padding: 60px 0 30px;
     }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
     body {font-size: 14px;}
-    .text-quote {font-size: 1.6em;}
+    .text-quote {font-size: 1.6em; font-weight: bolder;}
     .text-quote-author {font-size: 1em;}
     .title-primary{font-size: 1.3em; font-weight: 300;}
     .title-secondary{font-size: 2em; font-weight: 700;}
@@ -219,7 +222,7 @@ SVG Icons - svgicons.sparkk.fr
     .lead {font-size: 1.2em}
     .title-primary{font-size: 1.3em; font-weight: 300;}
     .title-secondary{font-size: 2.4em; font-weight: 700;}
-    .text-quote {font-size: 1.8em;}
+    .text-quote {font-size: 1.8em; font-weight: bolder;}
     .text-quote-author {font-size: 1em;}
     .svg {margin: -40px auto;}
     img.avatar-sm {width: 160px !important;}
