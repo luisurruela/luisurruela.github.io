@@ -25,6 +25,24 @@ h3 {font-size: 18px; font-weight: 400; letter-spacing: -1px;}
     fill: #5956a4 !important;
 }
 
+.whatsapp-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366;
+    color: white;
+    padding: 15px;
+    line-height: 1em;
+    border-radius: 50%;
+    font-size: 30px;
+    z-index: 1000;
+}
+
+.whatsapp-button:hover {
+    border: none;
+    color: white;
+}
+
 .text-warning {color:#FEA911;}
 .text-yellow {color: #000000; background-color: #FAC017; border-radius: 1px; padding: 0px 5px; font-weight: 700;}
 
@@ -108,7 +126,7 @@ h3 {font-size: 18px; font-weight: 400; letter-spacing: -1px;}
 }
 
 .nav-item {
-    border-bottom: 4px solid #ffffff;
+    border-bottom: 4px solid trans;
     transition: .6s;
 }
 
@@ -122,7 +140,7 @@ h3 {font-size: 18px; font-weight: 400; letter-spacing: -1px;}
 }
 
 .bg-light {
-    background-color: #F5F5F5 !important;
+    background-color: #FAF8FB !important;
 }
 
 .card {
@@ -137,7 +155,7 @@ span.title{display:block; font-size: 1.3em; font-weight: 600; margin-bottom: 5px
 }
 
 #services {
-    margin-top: -72px;
+    
     padding: 280px 0 60px;
 }
 
