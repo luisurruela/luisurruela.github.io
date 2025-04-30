@@ -21,8 +21,8 @@ importers:
         specifier: ^5.7.5
         version: 5.7.5(@types/node@22.15.2)(jiti@2.4.2)(lightningcss@1.29.2)(rollup@4.40.0)(typescript@5.8.3)
       astro-bootstrap:
-        specifier: ^0.7.0
-        version: 0.7.0(astro@5.7.5(@types/node@22.15.2)(jiti@2.4.2)(lightningcss@1.29.2)(rollup@4.40.0)(typescript@5.8.3))(bootstrap@5.3.5(@popperjs/core@2.11.8))
+        specifier: ^0.7.2
+        version: 0.7.2(astro@5.7.5(@types/node@22.15.2)(jiti@2.4.2)(lightningcss@1.29.2)(rollup@4.40.0)(typescript@5.8.3))(bootstrap@5.3.5(@popperjs/core@2.11.8))
       astro-icon:
         specifier: ^1.1.5
         version: 1.1.5
@@ -651,10 +651,10 @@ packages:
   array-iterate@2.0.1:
     resolution: {integrity: sha512-I1jXZMjAgCMmxT4qxXfPXa6SthSoE8h6gkSI9BGGNv8mP8G/v0blc+qFnZu6K42vTOiuME596QaLO0TP3Lk0xg==}
 
-  astro-bootstrap@0.7.0:
-    resolution: {integrity: sha512-UuzaSP8Aj+rnFt8+fO0VLNnkvip9pDZv+5ANvqcps/ODONzF4P9C3osZ+FsjsEoV8+Kc7Sl4obG4IqDwZs6a5Q==}
+  astro-bootstrap@0.7.2:
+    resolution: {integrity: sha512-Dhg1tif5Wih2csui8BalbxX1dNkquH/lARXxiGbpCVTC5VI+kG1jKusM3P+70ONktc5Q2TGRHXV56YGmrguNZg==}
     peerDependencies:
-      astro: 4.x
+      astro: 5.x
       bootstrap: 5.x
 
   astro-icon@1.1.5:
@@ -1255,8 +1255,8 @@ packages:
   markdown-table@3.0.4:
     resolution: {integrity: sha512-wiYz4+JrLyb/DqW2hkFJxP7Vd7JuTDm77fvbM8VfEQdmSMqcImWeeRbHwZjBjIFki/VaMK2BhFi7oUUZeM5bqw==}
 
-  marked@13.0.3:
-    resolution: {integrity: sha512-rqRix3/TWzE9rIoFGIn8JmsVfhiuC8VIQ8IdX5TfzmeBucdY05/0UlzKaw0eVtpcN/OdVFpBk7CjKGo9iHJ/zA==}
+  marked@15.0.11:
+    resolution: {integrity: sha512-1BEXAU2euRCG3xwgLVT1y0xbJEld1XOrmRJpUwRCcy7rxhSCwMrmEu9LXoPhHSCJG41V7YcQ2mjKRr5BA3ITIA==}
     engines: {node: '>= 18'}
     hasBin: true
 
@@ -2504,13 +2504,13 @@ snapshots:
 
   array-iterate@2.0.1: {}
 
-  astro-bootstrap@0.7.0(astro@5.7.5(@types/node@22.15.2)(jiti@2.4.2)(lightningcss@1.29.2)(rollup@4.40.0)(typescript@5.8.3))(bootstrap@5.3.5(@popperjs/core@2.11.8)):
+  astro-bootstrap@0.7.2(astro@5.7.5(@types/node@22.15.2)(jiti@2.4.2)(lightningcss@1.29.2)(rollup@4.40.0)(typescript@5.8.3))(bootstrap@5.3.5(@popperjs/core@2.11.8)):
     dependencies:
       astro: 5.7.5(@types/node@22.15.2)(jiti@2.4.2)(lightningcss@1.29.2)(rollup@4.40.0)(typescript@5.8.3)
       bootstrap: 5.3.5(@popperjs/core@2.11.8)
       clsx: 2.1.1
       dompurify: 3.2.5
-      marked: 13.0.3
+      marked: 15.0.11
       nanoid: 5.1.5
       title-case: 4.3.2
 
@@ -3257,7 +3257,7 @@ snapshots:
 
   markdown-table@3.0.4: {}
 
-  marked@13.0.3: {}
+  marked@15.0.11: {}
 
   math-intrinsics@1.1.0: {}
 
