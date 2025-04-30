@@ -6,35 +6,35 @@ import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
 
 const menuitems = [
   {
-    title: "Features",
-    path: "#",
+    title: "Servicios",
+    path: "#servicios",
     children: [
-      { title: "Action", path: "/" },
-      { title: "Another action", path: "#" },
-      { title: "Dropdown Submenu", path: "#" },
-      { title: "404 Page", path: "/404" },
+      { title: "Diseño Web", path: "/" },
+      { title: "Aplicaciones Móviles ", path: "#" },
+      { title: "Desarrollo Web", path: "#" },
+      { title: "E-Commerce", path: "#" },
+      { title: "Redes Sociales", path: "#" },
+      { title: "Gestión de Proyectos", path: "#" },
+      { title: "Consultoría", path: "#" },
+      { title: "Desarrollo de Contenido", path: "#" },
+      { title: "Mantenimiento Web", path: "#" },
+      { title: "Publicidad Digital", path: "#" },
+      { title: "Desarrollo de Software", path: "#" },
+      { title: "Desarrollo de Temas", path: "#" },
+      { title: "Desarrollo de API", path: "#" },
+      { title: "Marketing Digital", path: "#" },
+      { title: "Desarrollo de Chatbots", path: "#" },
+      { title: "Desarrollo de Inteligencia Artificial", path: "#" },
     ],
   },
   {
-    title: "Pricing",
-    path: "/pricing",
-  },
-  {
     title: "About",
+    badge: false,
     path: "/about",
   },
   {
-    title: "Blog",
-    path: "/blog",
-  },
-  {
-    title: "Contact",
+    title: "Contacto",
     path: "/contact",
-  },
-  {
-    title: "Pro Version",
-    badge: true,
-    path: "https://astroship-pro.web3templates.com/",
   },
 ];
 ---
@@ -44,8 +44,8 @@ const menuitems = [
     <Astronav>
       <div class="flex w-full lg:w-auto items-center justify-between">
         <a href="/" class="text-lg"
-          ><span class="font-bold text-slate-800">Astro</span><span
-            class="text-slate-500">ship</span
+          ><span class="font-bold text-slate-800 font-bold">Luis</span><span
+            class="text-slate-500 text-indigo-600 font-bold">Urruela</span
           >
         </a>
         <div class="block lg:hidden">
@@ -83,17 +83,17 @@ const menuitems = [
             ))
           }
         </ul>
-        <div class="lg:hidden flex items-center mt-3 gap-4">
+        <!-- <div class="lg:hidden flex items-center mt-3 gap-4">
           <Link href="#" style="muted" block size="md">Log in</Link>
           <Link href="#" size="md" block>Sign up</Link>
-        </div>
+        </div> -->
       </MenuItems>
     </Astronav>
-    <div>
+    <!-- <div>
       <div class="hidden lg:flex items-center gap-4">
         <a href="#">Log in</a>
         <Link href="#" size="md">Sign up</Link>
       </div>
-    </div>
+    </div> -->
   </header>
 </Container>
