@@ -1,11 +1,10 @@
 ---
-import Background from "../components/Background.astro";
 import Layout from "../layouts/Layout.astro";
 import { Icon } from "astro-icon/components";
 ---
 
 <Layout>
-	<header class="h-screen flex items-center">
+	<header class="h-screen flex items-center bg-black">
 		<div
 			class="w-full md:w-[500px] mx-auto text-center flex-col items-center justify-center z-10"
 		>
@@ -16,42 +15,50 @@ import { Icon } from "astro-icon/components";
 			/>
 
 			<p class="text-white text-xs md:text-base px-4 md:px-0">
-				Actualmente me encuentro rediseñando la página, no hay mucho por
-				el momento, pero puedes mandarme un correo mientras queda lista. <a
+				👋 Bienvenido a mi página personal. Mi nombre es Luis Urruela,
+				Programador y Diseñador Web. Me dedico a convertir ideas en
+				productos digitales, creativos y funcionales.
+			</p>
+			<p class="text-white text-xs md:text-base px-4 md:px-0">
+				Si buscas a alguien que pueda ayudarte a llevar tu proyecto al
+				siguiente nivel, hablemos! Aquí tienes mi correo y redes
+				sociales <a
 					href="mailto:luis.urruela@gmail.com"
 					target="_blank"
 					class="hover:text-secondary text-white"
 					>luis.urruela@gmail.com</a
 				>
 			</p>
-			<div class="mt-6 flex justify-center gap-3">
+			<div class="mt-10 flex justify-center gap-6">
 				<a href="https://instagram.com/luigidotdev" target="_blank"
 					><Icon
-						name="instagram"
+						name="cib:instagram"
 						size={32}
 						class="text-white shadow-lg"
 					/></a
 				>
 				<a href="https://github.com/luisurruela" target="_blank">
 					<Icon
-						name="github"
+						name="cib:github"
 						size={32}
 						class="text-white shadow-lg"
 					/>
 				</a>
 				<a href="https://linkedin.com/in/luisurruela" target="_blank">
 					<Icon
-						name="linkedin"
+						name="cib:linkedin"
 						size={32}
 						class="text-white shadow-lg"
 					/>
 				</a>
 				<a href="mailto:luis.urruela@gmail.com" target="_blank">
-					<Icon name="gmail" size={32} class="text-white shadow-lg" />
+					<Icon
+						name="cib:gmail"
+						size={32}
+						class="text-white shadow-lg"
+					/>
 				</a>
 			</div>
 		</div>
-
-		<Background />
 	</header>
 </Layout>
