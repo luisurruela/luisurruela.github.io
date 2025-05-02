@@ -1,18 +1,26 @@
 ---
 import { Icon } from "astro-icon/components";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { useTranslations } from "../../i18n/utils";
+import { languages } from "../../i18n/ui";
+
+const currentLanguage = Astro.currentLocale || "es";
+const translateOptions = useTranslations(
+  currentLanguage as keyof typeof languages
+);
 
 const menuLinks = [
   {
-    name: "Acerca de",
-    url: "/acerca-de",
+    name: translateOptions("nav.about"),
+    url: getRelativeLocaleUrl(currentLanguage, "about"),
   },
   {
-    name: "Servicios",
-    url: "/servicios",
+    name: translateOptions("nav.services"),
+    url: getRelativeLocaleUrl(currentLanguage, "services"),
   },
   {
-    name: "Contacto",
-    url: "/contacto",
+    name: translateOptions("nav.contact"),
+    url: getRelativeLocaleUrl(currentLanguage, "contact"),
   },
 ];
 ---

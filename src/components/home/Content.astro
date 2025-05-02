@@ -1,5 +1,10 @@
 ---
 import { Icon } from "astro-icon/components";
+import { useTranslations } from "../../i18n/utils";
+import { languages } from "../../i18n/ui";
+
+const currentLanguage = Astro.currentLocale || "es";
+const translate = useTranslations(currentLanguage as keyof typeof languages);
 
 const socialLinks = [
   {
@@ -32,15 +37,13 @@ const socialLinks = [
 
   <div class="text-sm sm:text-2xl px-4 sm:px-0 text-gray-500">
     <span class="text-3xl md:text-5xl">👋</span><br />
-    <span class="italic font-light">Soy Luis Urruela</span>
+    <span class="italic font-light">{translate("home.subtitle")}</span>
   </div>
   <h1 class="text-xl sm:text-xl md:text-6xl font-heading text-gray-800 mb-4">
-    Programador y Diseñador Web
+    {translate("home.title")}
   </h1>
   <p class="text-gray-500 font-light text-xs md:text-base sm:px-25 px-6">
-    Tengo más de 25 años convirtiendo ideas en productos digitales, creativos y
-    funcionales. Si buscas a alguien que te ayude a llevar tu proyecto o negocio
-    al siguiente nivel <span class="font-normal">¡Envía mensaje!</span>
+    {translate("home.description")}
   </p>
 
   <div
@@ -51,12 +54,12 @@ const socialLinks = [
       class="bg-primary hover:bg-primary-dark transition duration-300 ease-in-out w-full text-xs border-primary sm:text-sm sm:w-auto py-3 px-4 sm:py-3 sm:px-6 text-white flex justify-center items-center"
     >
       <Icon name="cib:whatsapp" size={16} class="text-white mr-2" />
-      Enviar Mensaje
+      {translate("home.primary-button")}
     </a>
     <a
       href="/servicios"
       class="border-secondary hover:bg-secondary/5 transition duration-300 ease-in-out border-1 mt-1 sm:mt-0 text-xs sm:text-sm text-secondary w-full sm:w-auto py-3 px-4 sm:py-3 sm:px-6 flex justify-center items-center"
-      >Mis Servicios</a
+      >{translate("home.secondary-button")}</a
     >
   </div>
 </div>
