@@ -1,47 +1,11 @@
 ---
 import Content from "../components/home/Content.astro";
+import Background from "../components/util/Background.astro";
 import Layout from "../layouts/Layout.astro";
-import { Icon } from "astro-icon/components";
-
-const socialLinks = [
-  {
-    name: "Instagram",
-    url: "https://instagram.com/luigidotdev",
-    icon: "cib:instagram",
-  },
-  {
-    name: "GitHub",
-    url: "https://github.com/luisurruela",
-    icon: "cib:github",
-  },
-  {
-    name: "LinkedIn",
-    url: "https://linkedin.com/in/luisurruela",
-    icon: "cib:linkedin",
-  },
-  {
-    name: "Gmail",
-    url: "mailto:luis.urruela@gmail.com",
-    icon: "cib:gmail",
-  },
-];
-
-const menuLinks = [
-  {
-    name: "Acerca de",
-    url: "/acerca-de",
-  },
-  {
-    name: "Servicios",
-    url: "/servicios",
-  },
-  {
-    name: "Contacto",
-    url: "/contacto",
-  },
-];
 ---
 
 <Layout>
   <Content />
 </Layout>
+
+<Background />

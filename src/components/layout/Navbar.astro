@@ -21,8 +21,8 @@ const menuLinks = [
   <nav
     class="hidden container mx-auto md:flex items-center justify-between py-4 px-6 md:px-0"
   >
-    <div class="logo text-2xl font-bold text-black/75">
-      /<span>luis</span><span class="text-primary">urruela</span>
+    <div class="logo text-2xl font-bold text-black/85 flex items-center">
+      <Icon name="logo" size={42} class="text-primary mr-2" />
     </div>
     <ul class="hidden md:flex gap-6 text-black font-semibold">
       {
@@ -30,7 +30,7 @@ const menuLinks = [
           <li>
             <a
               href={link.url}
-              class="hover:text-primary-dark transition duration-300 ease-in-out"
+              class="hover:text-primary-dark transition duration-300 ease-in-out text-black/75"
             >
               {link.name}
             </a>
@@ -39,17 +39,18 @@ const menuLinks = [
       }
     </ul>
   </nav>
-  <nav
-    class="container mx-auto flex md:hidden items-center justify-between py-4 px-6 md:px-0"
-  >
-    <div class="logo text-lg font-bold">
-      /<span>luis</span><span class="text-primary">urruela</span>
-    </div>
-    <div id="menu-button" class="text-black/75 cursor-pointer">
-      <Icon name="mdi:menu" size={32} />
-    </div>
-  </nav>
 </header>
+<nav
+  class="container mx-auto flex md:hidden items-center justify-between py-4 px-6 md:px-0"
+>
+  <div class="logo text-lg font-bold text-black/85 flex items-center">
+    <Icon name="logo" size={32} class="text-primary" />
+  </div>
+  <div id="menu-button" class="text-black/75 cursor-pointer">
+    <Icon name="mdi:menu" size={32} />
+  </div>
+</nav>
+
 <aside
   class="bg-primary/15 w-[75%] h-screen fixed top-0 right-0 z-100 md:hidden border-l border-secondary/5 shadow-lg transform transition-transform duration-300 ease-in-out translate-x-full"
 >
