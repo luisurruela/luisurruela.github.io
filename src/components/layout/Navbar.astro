@@ -17,7 +17,8 @@ const menuLinks = [
 ];
 ---
 
-<header class="flex-col items-center bg-white">
+<header class="flex-col items-center">
+  <!-- Desktop Navbar -->
   <nav
     class="hidden container mx-auto md:flex items-center justify-between py-4 px-6 md:px-0"
   >
@@ -40,6 +41,7 @@ const menuLinks = [
     </ul>
   </nav>
 </header>
+<!-- Mobile Navbar -->
 <nav
   class="container mx-auto flex md:hidden items-center justify-between py-4 px-6 md:px-0"
 >
@@ -52,24 +54,33 @@ const menuLinks = [
 </nav>
 
 <aside
-  class="bg-primary/15 w-[75%] h-screen fixed top-0 right-0 z-100 md:hidden border-l border-secondary/5 shadow-lg transform transition-transform duration-300 ease-in-out translate-x-full"
+  class="bg-secondary/75 w-[75%] h-screen fixed top-0 right-0 z-10 md:hidden border-l border-secondary shadow-lg transform transition-transform duration-300 ease-in-out translate-x-full"
 >
   <div
-    class="flex items-center justify-between p-4 border-b border-secondary/5"
+    class="flex-col items-center justify-between p-4 border-b border-secondary/5"
   >
-    <div class="text-primary/45 text-base font-black">MENÚ</div>
-    <div
-      id="close-button"
-      class="text-primary/45 hover:text-primary-dark transition duration-300 ease-in-out cursor-pointer"
-    >
-      <Icon name="mdi:close" size={32} />
+    <div class="flex items-center justify-between">
+      <div class="text-white/45 text-base font-black">MENÚ</div>
+      <div
+        id="close-button"
+        class="text-white/45 hover:text-primary-dark transition duration-300 ease-in-out cursor-pointer"
+      >
+        <Icon name="mdi:close" size={32} />
+      </div>
+    </div>
+    <div>
+      <ul>
+        <li><a href="#" class="text-white/75">Acerca de</a></li>
+        <li><a href="#" class="text-white/75">Servicios</a></li>
+        <li><a href="#" class="text-white/75">Contacto</a></li>
+      </ul>
     </div>
   </div>
 </aside>
 
 <div
   id="overlay"
-  class="w-full h-screen bg-white/65 backdrop-blur-xs fixed top-0 left-0 z-50 hidden transition-opacity duration-300 ease-in-out"
+  class="w-full h-screen bg-white/65 backdrop-blur-xs fixed top-0 left-0 z-0 hidden transition-opacity duration-300 ease-in-out"
 >
 </div>
 
@@ -94,8 +105,18 @@ const menuLinks = [
   if (asideMenu && overlay) {
     menuButton?.addEventListener("click", openMenu);
     closeButton?.addEventListener("click", closeMenu);
-
-    // Opcional: Cerrar menú al hacer clic en el overlay
     overlay.addEventListener("click", closeMenu);
   }
 </script>
+
+<style>
+  aside ul li {
+    margin: 1rem 0;
+  }
+
+  aside ul li a {
+    font-size: 1rem;
+    font-weight: 400;
+    text-decoration: none;
+  }
+</style>
