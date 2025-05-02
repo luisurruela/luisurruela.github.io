@@ -1,19 +1,45 @@
 @import "tailwindcss";
 
-body, html {
-    background-color: var(--color-white);
+@font-face {
+  font-family: "RacingSansOne-Regular";
+  src: url("/fonts/RacingSansOne-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
+@font-face {
+  font-family: "FunnelDisplay-VariableFont_wght";
+  src: url("/fonts/FunnelDisplay-VariableFont_wght.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+body,
+html {
+  background-color: var(--color-white);
+}
+
+body {
+  font-family: "FunnelDisplay-VariableFont_wght", sans-serif;
+  line-height: 1.5;
+  color: var(--color-black);
+  margin: 0;
+  padding: 0;
+}
 
 p {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 
 @theme {
-    --color-primary: #5E42A6;
-    --color-primary-dark: #493382;
-    --color-secondary: #02829b;
-    --color-tertiary: ##cde7f0;
-    --color-black: #181818;
-    --color-white: #FDFDFE;
+  --color-primary: #5e42a6;
+  --color-primary-dark: #493382;
+  --color-secondary: #02829b;
+  --color-tertiary: ##cde7f0;
+  --color-black: #181818;
+  --color-white: #fdfdfe;
+
+  --font-heading: "RacingSansOne-Regular", sans-serif;
 }
