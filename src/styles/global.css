@@ -1,10 +1,19 @@
 @import "tailwindcss";
 
+body, html {
+    background-color: var(--color-white);
+}
+
 
 p {
     margin-bottom: 15px;
 }
 
 @theme {
-    --color-black: #282828;
+    --color-primary: #5E42A6;
+    --color-primary-dark: #493382;
+    --color-secondary: #02829b;
+    --color-tertiary: ##cde7f0;
+    --color-black: #181818;
+    --color-white: #FDFDFE;
 }

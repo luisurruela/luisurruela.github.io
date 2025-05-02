@@ -1,64 +1,47 @@
 ---
+import Content from "../components/home/Content.astro";
 import Layout from "../layouts/Layout.astro";
 import { Icon } from "astro-icon/components";
+
+const socialLinks = [
+  {
+    name: "Instagram",
+    url: "https://instagram.com/luigidotdev",
+    icon: "cib:instagram",
+  },
+  {
+    name: "GitHub",
+    url: "https://github.com/luisurruela",
+    icon: "cib:github",
+  },
+  {
+    name: "LinkedIn",
+    url: "https://linkedin.com/in/luisurruela",
+    icon: "cib:linkedin",
+  },
+  {
+    name: "Gmail",
+    url: "mailto:luis.urruela@gmail.com",
+    icon: "cib:gmail",
+  },
+];
+
+const menuLinks = [
+  {
+    name: "Acerca de",
+    url: "/acerca-de",
+  },
+  {
+    name: "Servicios",
+    url: "/servicios",
+  },
+  {
+    name: "Contacto",
+    url: "/contacto",
+  },
+];
 ---
 
 <Layout>
-	<header class="h-screen flex items-center bg-black">
-		<div
-			class="w-full md:w-[500px] mx-auto text-center flex-col items-center justify-center z-10"
-		>
-			<img
-				src="images/luis-urruela.webp"
-				alt="Luis Urruela"
-				class="rounded-full w-[145px] mx-auto border-4 border-white mb-5 shadow-lg"
-			/>
-
-			<p class="text-white text-xs md:text-base px-4 md:px-0">
-				👋 Bienvenido a mi página personal. Mi nombre es Luis Urruela,
-				Programador y Diseñador Web. Me dedico a convertir ideas en
-				productos digitales, creativos y funcionales.
-			</p>
-			<p class="text-white text-xs md:text-base px-4 md:px-0">
-				Si buscas a alguien que pueda ayudarte a llevar tu proyecto al
-				siguiente nivel, hablemos! Aquí tienes mi correo y redes
-				sociales <a
-					href="mailto:luis.urruela@gmail.com"
-					target="_blank"
-					class="hover:text-secondary text-white"
-					>luis.urruela@gmail.com</a
-				>
-			</p>
-			<div class="mt-10 flex justify-center gap-6">
-				<a href="https://instagram.com/luigidotdev" target="_blank"
-					><Icon
-						name="cib:instagram"
-						size={32}
-						class="text-white shadow-lg"
-					/></a
-				>
-				<a href="https://github.com/luisurruela" target="_blank">
-					<Icon
-						name="cib:github"
-						size={32}
-						class="text-white shadow-lg"
-					/>
-				</a>
-				<a href="https://linkedin.com/in/luisurruela" target="_blank">
-					<Icon
-						name="cib:linkedin"
-						size={32}
-						class="text-white shadow-lg"
-					/>
-				</a>
-				<a href="mailto:luis.urruela@gmail.com" target="_blank">
-					<Icon
-						name="cib:gmail"
-						size={32}
-						class="text-white shadow-lg"
-					/>
-				</a>
-			</div>
-		</div>
-	</header>
+  <Content />
 </Layout>

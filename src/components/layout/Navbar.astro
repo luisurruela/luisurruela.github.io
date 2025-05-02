@@ -1,0 +1,100 @@
+---
+import { Icon } from "astro-icon/components";
+
+const menuLinks = [
+  {
+    name: "Acerca de",
+    url: "/acerca-de",
+  },
+  {
+    name: "Servicios",
+    url: "/servicios",
+  },
+  {
+    name: "Contacto",
+    url: "/contacto",
+  },
+];
+---
+
+<header class="flex-col items-center bg-white">
+  <nav
+    class="hidden container mx-auto md:flex items-center justify-between py-4 px-6 md:px-0"
+  >
+    <div class="logo text-2xl font-bold text-black/75">
+      /<span>luis</span><span class="text-primary">urruela</span>
+    </div>
+    <ul class="hidden md:flex gap-6 text-black font-semibold">
+      {
+        menuLinks.map((link) => (
+          <li>
+            <a
+              href={link.url}
+              class="hover:text-primary-dark transition duration-300 ease-in-out"
+            >
+              {link.name}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+  <nav
+    class="container mx-auto flex md:hidden items-center justify-between py-4 px-6 md:px-0"
+  >
+    <div class="logo text-lg font-bold">
+      /<span>luis</span><span class="text-primary">urruela</span>
+    </div>
+    <div id="menu-button" class="text-black/75 cursor-pointer">
+      <Icon name="mdi:menu" size={32} />
+    </div>
+  </nav>
+</header>
+<aside
+  class="bg-primary/15 w-[75%] h-screen fixed top-0 right-0 z-100 md:hidden border-l border-secondary/5 shadow-lg transform transition-transform duration-300 ease-in-out translate-x-full"
+>
+  <div
+    class="flex items-center justify-between p-4 border-b border-secondary/5"
+  >
+    <div class="text-primary/45 text-base font-black">MENÚ</div>
+    <div
+      id="close-button"
+      class="text-primary/45 hover:text-primary-dark transition duration-300 ease-in-out cursor-pointer"
+    >
+      <Icon name="mdi:close" size={32} />
+    </div>
+  </div>
+</aside>
+
+<div
+  id="overlay"
+  class="w-full h-screen bg-white/65 backdrop-blur-xs fixed top-0 left-0 z-50 hidden transition-opacity duration-300 ease-in-out"
+>
+</div>
+
+<script>
+  const menuButton = document.querySelector("#menu-button");
+  const closeButton = document.querySelector("#close-button");
+  const asideMenu = document.querySelector("aside");
+  const overlay = document.querySelector("#overlay");
+
+  function openMenu() {
+    if (!asideMenu || !overlay) return;
+    asideMenu.classList.remove("translate-x-full"); // Mueve hacia la vista
+    overlay.classList.remove("hidden"); // Muestra el overlay
+  }
+
+  function closeMenu() {
+    if (!asideMenu || !overlay) return;
+    asideMenu.classList.add("translate-x-full"); // Mueve fuera de la vista
+    overlay.classList.add("hidden"); // Oculta el overlay
+  }
+
+  if (asideMenu && overlay) {
+    menuButton?.addEventListener("click", openMenu);
+    closeButton?.addEventListener("click", closeMenu);
+
+    // Opcional: Cerrar menú al hacer clic en el overlay
+    overlay.addEventListener("click", closeMenu);
+  }
+</script>

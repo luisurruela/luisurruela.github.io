@@ -1,23 +1,29 @@
 ---
+import Navbar from "../components/layout/Navbar.astro";
 import "../styles/global.css";
 interface Props {
-    title?: string;
+  title?: string;
 }
 
 const {
-    title = "Luis Urruela | Diseño Web, Sitemas a la medida y Móvil Apps",
+  title = "Luis Urruela | Diseño Web, Sitemas a la medida y Móvil Apps",
 } = Astro.props;
 ---
 
 <html lang="es">
-    <head>
-        <meta charset="utf-8" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <meta name="viewport" content="width=device-width" />
-        <meta name="generator" content={Astro.generator} />
-        <title>{title}</title>
-    </head>
-    <body>
-        <slot />
-    </body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body class="overflow-x-hidden">
+    <header>
+      <Navbar />
+    </header>
+    <main>
+      <slot />
+    </main>
+  </body>
 </html>

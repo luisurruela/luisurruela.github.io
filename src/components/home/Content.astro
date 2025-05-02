@@ -1,0 +1,81 @@
+---
+import { Icon } from "astro-icon/components";
+
+const socialLinks = [
+  {
+    name: "Instagram",
+    url: "https://instagram.com/luigidotdev",
+    icon: "cib:instagram",
+  },
+  {
+    name: "GitHub",
+    url: "https://github.com/luisurruela",
+    icon: "cib:github",
+  },
+  {
+    name: "LinkedIn",
+    url: "https://linkedin.com/in/luisurruela",
+    icon: "cib:linkedin",
+  },
+  {
+    name: "Gmail",
+    url: "mailto:luis.urruela@gmail.com",
+    icon: "cib:gmail",
+  },
+];
+---
+
+<div
+  class="w-full md:w-[800px] mx-auto text-center flex-col items-center justify-center z-10 mt-10"
+>
+  <img
+    src="images/luis-urruela.webp"
+    alt="Luis Urruela"
+    class="rounded-full w-[145px] md:w-[220px] mx-auto border-4 md:border-8 border-x-primary mb-5"
+    loading="lazy"
+  />
+
+  <div class="text-black text-sm md:text-xl px-4 md:px-0 font-bold">
+    Hola, soy <span class="text-primary font-bold">Luis Urruela</span>
+  </div>
+  <h1 class="text-xl md:text-4xl font-bold text-black px-4 md:px-0 mb-4">
+    Programador y Diseñador Web
+  </h1>
+  <p class="text-black/65 text-sm md:text-base px-4 md:px-0">
+    Tengo más 25 años de experiencia convirtiendo ideas en productos y
+    experiencias digitales para mis clientes.<br />Si buscas a alguien que pueda
+    ayudarte a llevar tu proyecto al siguiente nivel, hablemos!
+  </p>
+
+  <div
+    class="mt-10 px-4 flex-row md:flex justify-center gap-1 md:gap-2 md:px-0"
+  >
+    <a
+      href="/whatsapp"
+      class="bg-primary hover:bg-primary-dark transition duration-300 ease-in-out w-full text-xs md:text-sm font-semibold md:w-auto py-2 px-4 md:py-3 md:px-6 text-white flex justify-center items-center"
+    >
+      <Icon name="cib:whatsapp" size={16} class="text-white mr-2" />
+      Enviar Mensaje
+    </a>
+    <a
+      href="/servicios"
+      class="border-secondary hover:bg-secondary/5 transition duration-300 ease-in-out border-1 mt-1 md:mt-0 text-xs md:text-sm text-secondary w-full md:w-auto py-2 px-4 md:py-3 md:px-6 flex justify-center items-center"
+      >Mis Servicios</a
+    >
+  </div>
+</div>
+
+<div class="mt-10 flex justify-center gap-3">
+  {
+    socialLinks.map((link) => (
+      <a
+        href={link.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hover:bg-secondary/5 text-black w-[60px] h-[60px] rounded-full flex justify-center items-center transition duration-300 ease-in-out"
+      >
+        <Icon name={link.icon} size={24} />
+      </a>
+    ))
+  }
+</div>
