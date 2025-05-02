@@ -24,5 +24,8 @@
     "react-bits": "^1.0.5",
     "react-dom": "^19.1.0",
     "tailwindcss": "^4.1.4"
+  },
+  "devDependencies": {
+    "astro-i18n": "^2.2.4"
   }
 }

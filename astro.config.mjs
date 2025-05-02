@@ -1,11 +1,8 @@
+import tailwindcss from "@tailwindcss/vite";
+import react from "@astrojs/react";
 // @ts-check
-import { defineConfig } from 'astro/config';
-
-import tailwindcss from '@tailwindcss/vite';
-
-import icon from 'astro-icon';
-
-import react from '@astrojs/react';
+import { defineConfig } from "astro/config";
+import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
@@ -16,4 +13,12 @@ export default defineConfig({
   },
 
   integrations: [icon(), react()],
+
+  i18n: {
+    locales: ["en", "es"],
+    defaultLocale: "es",
+    routing: {
+      prefixDefaultLocale: false,
+    },
+  },
 });
