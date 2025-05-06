@@ -17,6 +17,7 @@
     "@types/bootstrap": "^5.2.10",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
+    "aos": "^2.3.4",
     "astro": "^5.7.5",
     "astro-bootstrap": "^0.7.0",
     "astro-icon": "^1.1.5",
@@ -26,6 +27,7 @@
     "tailwindcss": "^4.1.4"
   },
   "devDependencies": {
-    "astro-i18n": "^2.2.4"
+    "astro-i18n": "^2.2.4",
+    "@types/aos": "^3.0.7"
   }
 }
