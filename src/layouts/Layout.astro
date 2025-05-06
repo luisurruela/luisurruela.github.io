@@ -1,6 +1,8 @@
 ---
 import Navbar from "../components/layout/Navbar.astro";
 import "../styles/global.css";
+import "aos/dist/aos.css";
+
 interface Props {
   title?: string;
 }
@@ -29,3 +31,8 @@ const {
     </main>
   </body>
 </html>
+
+<script>
+  import AOS from "aos";
+  AOS.init();
+</script>

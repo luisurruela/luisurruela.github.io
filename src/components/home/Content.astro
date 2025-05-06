@@ -2,47 +2,45 @@
 import { Icon } from "astro-icon/components";
 import { useTranslations } from "../../i18n/utils";
 import { languages } from "../../i18n/ui";
+import SocialLinks from "../shared/SocialLinks.astro";
+import Avatar from "./Avatar.astro";
 
 const currentLanguage = Astro.currentLocale || "es";
 const translate = useTranslations(currentLanguage as keyof typeof languages);
-
-const socialLinks = [
-  {
-    name: "Instagram",
-    url: "https://instagram.com/luigidotdev",
-    icon: "cib:instagram",
-  },
-  {
-    name: "LinkedIn",
-    url: "https://linkedin.com/in/luisurruela",
-    icon: "cib:linkedin-in",
-  },
-  {
-    name: "Gmail",
-    url: "mailto:luis.urruela@gmail.com",
-    icon: "cib:gmail",
-  },
-];
 ---
 
 <div
   class="w-full md:w-[1000px] mx-auto text-center flex-col items-center justify-center mt-6 md:mt-12 z-10"
 >
-  <img
-    src="images/luis-urruela.webp"
-    alt="Luis Urruela"
-    class="rounded-full w-[145px] md:w-[220px] mx-auto border-6 md:border-8 border-x-primary mb-3 md:mb-8"
-    loading="lazy"
-  />
-
-  <div class="text-sm sm:text-2xl px-4 sm:px-0 text-gray-500">
-    <span class="text-3xl md:text-5xl">👋</span><br />
-    <span class="italic font-light">{translate("home.subtitle")}</span>
+  <div data-aos="fade-down" data-aos-duration="3000">
+    <Avatar />
   </div>
-  <h1 class="text-xl sm:text-xl md:text-6xl font-heading text-gray-800 mb-4">
+
+  <!-- Hi! I'm Luis -->
+  <div
+    class="text-sm sm:text-2xl px-4 sm:px-0 text-black/65"
+    data-aos="fade"
+    data-aos-duration="3000"
+  >
+    <span class="font-thin">{translate("home.subtitle")}</span><span
+      class="text-3xl md:text-5xl text-black">👋</span
+    >
+  </div>
+
+  <h1
+    class="text-xl sm:text-xl md:text-6xl font-heading text-black/85 mb-4"
+    data-aos="fade"
+    data-aos-duration="3000"
+    data-aos-delay="300"
+  >
     {translate("home.title")}
   </h1>
-  <p class="text-gray-500 font-light text-xs md:text-base sm:px-25 px-6">
+  <p
+    class="text-black/50 font-light text-xs md:text-base sm:px-25 px-6"
+    data-aos="fade"
+    data-aos-duration="3000"
+    data-aos-delay="500"
+  >
     {translate("home.description")}
   </p>
 
@@ -50,32 +48,27 @@ const socialLinks = [
     class="mt-8 md:mt-10 px-8 flex-row sm:flex justify-center gap-1 md:gap-2 md:px-0"
   >
     <a
-      href="/whatsapp"
-      class="bg-primary hover:bg-primary-dark transition duration-300 ease-in-out w-full text-xs border-primary sm:text-sm sm:w-auto py-3 px-4 sm:py-3 sm:px-6 text-white flex justify-center items-center"
+      href="https://wa.me/529932090424?text=Hola%20Luis%2C%20me%20interesa%20tu%20servicio"
+      target="_blank"
+      class="bg-primary hover:bg-primary-dark transition duration-500 ease-in-out w-full text-xs border-primary sm:text-sm sm:w-auto py-3 px-4 sm:py-3 sm:px-6 text-white flex justify-center items-center"
+      data-aos="fade-right"
+      data-aos-duration="3000"
+      data-aos-delay="1200"
     >
       <Icon name="cib:whatsapp" size={16} class="text-white mr-2" />
       {translate("home.primary-button")}
     </a>
     <a
       href="/servicios"
-      class="border-secondary hover:bg-secondary/5 transition duration-300 ease-in-out border-1 mt-1 sm:mt-0 text-xs sm:text-sm text-secondary w-full sm:w-auto py-3 px-4 sm:py-3 sm:px-6 flex justify-center items-center"
-      >{translate("home.secondary-button")}</a
+      class="border-secondary hover:bg-secondary/5 transition duration-500 ease-in-out border-1 mt-1 sm:mt-0 text-xs sm:text-sm text-secondary w-full sm:w-auto py-3 px-4 sm:py-3 sm:px-6 flex justify-center items-center"
+      data-aos="fade-left"
+      data-aos-duration="3000"
+      data-aos-delay="1200">{translate("home.secondary-button")}</a
     >
   </div>
-</div>
 
-<!-- Social Links -->
-<div class="mt-4 md:mt-10 flex justify-center gap-3">
-  {
-    socialLinks.map((link) => (
-      <a
-        href={link.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="hover:shadow-primary-dark hover:shadow-xs hover:text-secondary  text-gray-500 w-[60px] h-[60px] rounded-full flex justify-center items-center transition duration-300 ease-in-out"
-      >
-        <Icon name={link.icon} size={24} />
-      </a>
-    ))
-  }
+  <!-- Social Links -->
+  <div data-aos="fade-up" data-aos-duration="3000" data-aos-delay="1200">
+    <SocialLinks />
+  </div>
 </div>
