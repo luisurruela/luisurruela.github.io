@@ -36,15 +36,15 @@ const menuLinks = [
     class="hidden container mx-auto md:flex items-center justify-between py-4 px-6 md:px-0"
   >
     <div class="logo text-2xl font-bold text-black/85 flex items-center">
-      <Icon name="logo" size={42} class="text-primary mr-2" />
+      <a href="./"><Icon name="logo" size={42} class="text-primary mr-2" /></a>
     </div>
-    <ul class="hidden md:flex gap-6 text-black">
+    <ul class="hidden md:flex gap-5 text-black">
       {
         menuLinks.map((link) => (
-          <li>
+          <li class="hover-underline flex items-center justify-center hover:bg-primary/10 px-2 transition-all duration-300 ease-in-out">
             <a
               href={link.url}
-              class="hover:text-primary-dark transition duration-300 ease-in-out text-gray-500"
+              class="hover:text-primary-dark font-semibold text-sm transition-alln duration-300 ease-in-out text-black/60"
             >
               {link.name}
             </a>
@@ -124,13 +124,32 @@ const menuLinks = [
 </script>
 
 <style>
-  aside ul li {
-    margin: 1rem 0;
+  .hover-underline {
+    position: relative;
+    display: inline-block;
   }
 
-  aside ul li a {
-    font-size: 1rem;
-    font-weight: 400;
-    text-decoration: none;
+  .hover-underline::after,
+  .hover-underline::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, #cde7f0, #5e42a6);
+    bottom: -5px;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.4s ease-out;
+  }
+
+  .hover-underline::before {
+    top: -5px;
+    transform-origin: center;
+  }
+
+  .hover-underline:hover::after,
+  .hover-underline:hover::before {
+    transform: scaleX(1);
   }
 </style>

@@ -15,7 +15,7 @@ export const ui = {
     "home.title": "Programador y Diseñador Web",
     "home.subtitle": "Soy Luis Urruela, freelancer de México",
     "home.description":
-            "Tengo más de 25 años convirtiendo ideas en productos digitales, creativos y funcionales. Si buscas a alguien que te ayude a llevar tu proyecto o negocio al siguiente nivel ¡Manda mensaje!",
+            "Tengo más de 25 años convirtiendo ideas en productos digitales, creativos y funcionales. Si buscas a alguien que te ayude a llevar tu negocio al siguiente nivel ¡Manda mensaje!",
     "home.primary-button": "Enviar mensaje",
     "home.secondary-button": "Mis servicios",
   },
@@ -28,7 +28,7 @@ export const ui = {
     "home.title": "Developer & Web Designer",
     "home.subtitle": "I am Luis Urruela, freelancer from Mexico",
     "home.description":
-          "I have over 25 years of experience turning ideas into digital, creative, and functional products. If you're looking for someone to help take your project or business to the next level, send me a message!",
+          "I have over 25 years of experience turning ideas into digital, creative, and functional products. If you're looking for someone to help take your business to the next level, send me a message!",
     "home.primary-button": "Send a message",
     "home.secondary-button": "See my services",
   },
