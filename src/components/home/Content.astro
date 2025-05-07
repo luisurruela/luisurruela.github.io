@@ -7,6 +7,13 @@ import Avatar from "./Avatar.astro";
 
 const currentLanguage = Astro.currentLocale || "es";
 const translate = useTranslations(currentLanguage as keyof typeof languages);
+
+// TODO: Reemplaza estos valores con los colores exactos de tu tema de Tailwind CSS.
+// Por ejemplo, si 'primary-dark' en tu tailwind.config.js es colors.blue['700'] (ej: '#1D4ED8'), úsalo aquí.
+// Para 'secondaryHoverBgForSweep', si 'secondary' es colors.emerald['500'] (ej: '#10B981'),
+// necesitarás el color con opacidad (ej: 'rgba(16, 185, 129, 0.1)' para 10% de opacidad).
+const primaryDarkColorForSweep = "#493382"; // Ejemplo para hover:bg-primary-dark
+const secondaryHoverBgForSweep = "rgba(16, 185, 129, 0.1)"; // Ejemplo para hover:bg-secondary/10
 ---
 
 <div
@@ -18,7 +25,7 @@ const translate = useTranslations(currentLanguage as keyof typeof languages);
 
   <!-- Hi! I'm Luis -->
   <div
-    class="text-sm sm:text-2xl px-4 sm:px-0 text-black/65"
+    class="text-sm sm:text-2xl px-4 sm:px-0 text-black/60"
     data-aos="fade"
     data-aos-duration="3000"
   >
@@ -28,7 +35,7 @@ const translate = useTranslations(currentLanguage as keyof typeof languages);
   </div>
 
   <h1
-    class="text-xl sm:text-xl md:text-6xl font-heading text-black/85 mb-4"
+    class="text-xl sm:text-xl md:text-6xl font-heading text-black/80 mb-4"
     data-aos="fade"
     data-aos-duration="3000"
     data-aos-delay="300"
@@ -45,12 +52,12 @@ const translate = useTranslations(currentLanguage as keyof typeof languages);
   </p>
 
   <div
-    class="mt-8 md:mt-10 px-8 flex-row sm:flex justify-center gap-1 md:gap-2 md:px-0"
+    class="mt-8 md:mt-10 px-8 flex-col sm:flex-row sm:flex justify-center gap-2 md:gap-2 md:px-0"
   >
     <a
       href="https://wa.me/529932090424?text=Hola%20Luis%2C%20me%20interesa%20tu%20servicio"
       target="_blank"
-      class="bg-primary hover:bg-primary-dark transition duration-500 ease-in-out w-full text-xs border-primary sm:text-sm sm:w-auto py-3 px-4 sm:py-3 sm:px-6 text-white flex justify-center items-center"
+      class="btn-sweep btn-sweep-primary bg-primary transition-all duration-200 ease-in-out w-full text-xs border-primary sm:text-sm sm:w-auto py-3 px-4 sm:py-3 sm:px-6 text-white flex justify-center items-center mb-2 sm:mb-0"
       data-aos="fade-right"
       data-aos-duration="3000"
       data-aos-delay="1200"
@@ -60,15 +67,45 @@ const translate = useTranslations(currentLanguage as keyof typeof languages);
     </a>
     <a
       href="/servicios"
-      class="border-secondary hover:bg-secondary/5 transition duration-500 ease-in-out border-1 mt-1 sm:mt-0 text-xs sm:text-sm text-secondary w-full sm:w-auto py-3 px-4 sm:py-3 sm:px-6 flex justify-center items-center"
+      class="btn-sweep btn-sweep-secondary border-secondary transition-all duration-200 ease-in-out border mt-1 sm:mt-0 text-xs sm:text-sm text-secondary w-full sm:w-auto py-3 px-4 sm:py-3 sm:px-6 flex justify-center items-center"
       data-aos="fade-left"
       data-aos-duration="3000"
       data-aos-delay="1200">{translate("home.secondary-button")}</a
     >
   </div>
-
   <!-- Social Links -->
   <div data-aos="fade-up" data-aos-duration="3000" data-aos-delay="1200">
     <SocialLinks />
   </div>
 </div>
+
+<style define:vars={{ primaryDarkColorForSweep, secondaryHoverBgForSweep }}>
+  .btn-sweep {
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+  }
+
+  .btn-sweep::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    transition: width 0.2s ease-in-out;
+    z-index: -1;
+  }
+
+  .btn-sweep:hover::before {
+    width: 100%;
+  }
+
+  .btn-sweep-primary::before {
+    background-color: var(--primaryDarkColorForSweep);
+  }
+
+  .btn-sweep-secondary::before {
+    background-color: var(--secondaryHoverBgForSweep);
+  }
+</style>
