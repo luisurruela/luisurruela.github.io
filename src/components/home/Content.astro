@@ -7,17 +7,12 @@ import Avatar from "./Avatar.astro";
 
 const currentLanguage = Astro.currentLocale || "es";
 const translate = useTranslations(currentLanguage as keyof typeof languages);
-
-// TODO: Reemplaza estos valores con los colores exactos de tu tema de Tailwind CSS.
-// Por ejemplo, si 'primary-dark' en tu tailwind.config.js es colors.blue['700'] (ej: '#1D4ED8'), úsalo aquí.
-// Para 'secondaryHoverBgForSweep', si 'secondary' es colors.emerald['500'] (ej: '#10B981'),
-// necesitarás el color con opacidad (ej: 'rgba(16, 185, 129, 0.1)' para 10% de opacidad).
-const primaryDarkColorForSweep = "#493382"; // Ejemplo para hover:bg-primary-dark
-const secondaryHoverBgForSweep = "rgba(16, 185, 129, 0.1)"; // Ejemplo para hover:bg-secondary/10
+const primaryDarkColorForSweep = "#493382";
+const secondaryHoverBgForSweep = "rgba(16, 185, 129, 0.1)";
 ---
 
 <div
-  class="w-full md:w-[1000px] mx-auto text-center flex-col items-center justify-center mt-6 md:mt-12 z-10"
+  class="w-full md:w-[1000px] mx-auto text-center flex-col items-center justify-center mt-6 md:mt-12 z-10 overflow-x-hidden"
 >
   <div data-aos="fade-down" data-aos-duration="3000">
     <Avatar />
@@ -73,6 +68,7 @@ const secondaryHoverBgForSweep = "rgba(16, 185, 129, 0.1)"; // Ejemplo para hove
       data-aos-delay="1200">{translate("home.secondary-button")}</a
     >
   </div>
+
   <!-- Social Links -->
   <div data-aos="fade-up" data-aos-duration="3000" data-aos-delay="1200">
     <SocialLinks />
