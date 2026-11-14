@@ -87,10 +87,13 @@ export const ui = {
     "contact.form.message": "Detalles de tu proyecto o negocio",
     "contact.form.message.placeholder":
       "Platícame brevemente qué necesitas, el giro de tu negocio o cómo te gustaría empezar...",
-    "contact.form.submit-whatsapp": "Enviar por WhatsApp al instante",
-    "contact.form.submit-email": "Enviar por Correo Electrónico",
+    "contact.form.submit": "Enviar Mensaje",
+    "contact.form.submitting": "Enviando...",
+    "contact.form.submit-whatsapp": "Enviar por WhatsApp",
     "contact.form.success":
-      "¡Listo! Hemos preparado tu mensaje para enviarlo directamente. ¡Gracias por contactarme!",
+      "¡Mensaje enviado con éxito! Recibí tu solicitud en Netlify y te responderé a la brevedad.",
+    "contact.form.error":
+      "Ocurrió un problema al enviar el formulario. Por favor intenta de nuevo o escríbeme directamente por WhatsApp.",
     "contact.info.title": "Canales de contacto directo",
     "contact.info.desc":
       "Prefieres trato directo e inmediato: escríbeme por WhatsApp o envíame un correo y conversemos sin compromiso.",
@@ -186,10 +189,13 @@ export const ui = {
     "contact.form.message": "Project or business details",
     "contact.form.message.placeholder":
       "Tell me briefly about what you need, your business type, or how you'd like to get started...",
-    "contact.form.submit-whatsapp": "Send via WhatsApp instantly",
-    "contact.form.submit-email": "Send via Email",
+    "contact.form.submit": "Send Message",
+    "contact.form.submitting": "Sending...",
+    "contact.form.submit-whatsapp": "Send via WhatsApp",
     "contact.form.success":
-      "Done! Your message is ready to send directly. Thank you for reaching out!",
+      "Message sent successfully! I received your inquiry via Netlify and will reply shortly.",
+    "contact.form.error":
+      "There was an issue sending your message. Please try again or reach out directly via WhatsApp.",
     "contact.info.title": "Direct contact channels",
     "contact.info.desc":
       "Prefer direct and immediate communication? Message me on WhatsApp or send an email and let's chat with no obligation.",

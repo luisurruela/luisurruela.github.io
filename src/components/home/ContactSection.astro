@@ -107,7 +107,24 @@ const interestOptions = [
         class="lg:col-span-7 rounded-3xl bg-white/90 backdrop-blur-md border border-black/10 p-6 sm:p-9 shadow-xl"
         data-aos="fade-left"
       >
-        <form id="contact-form" class="space-y-5">
+        <form
+          id="contact-form"
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          netlify
+          data-netlify-honeypot="bot-field"
+          action="/"
+          class="space-y-5"
+        >
+          <!-- Netlify Forms Hidden Identifiers -->
+          <input type="hidden" name="form-name" value="contact" />
+          <p class="hidden">
+            <label>
+              No llenar este campo: <input name="bot-field" />
+            </label>
+          </p>
+
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <!-- Full Name -->
             <div>
@@ -207,31 +224,43 @@ const interestOptions = [
 
           <!-- Submit Actions -->
           <div class="flex flex-col sm:flex-row gap-3 pt-2">
+            <!-- Netlify Forms Primary Submit -->
             <button
               type="submit"
-              data-submit-channel="whatsapp"
-              class="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-bold shadow-lg shadow-emerald-600/20 transition-all cursor-pointer"
+              id="submit-netlify-btn"
+              class="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-primary hover:bg-primary-dark text-white text-sm font-bold shadow-lg shadow-primary/20 transition-all cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
+            >
+              <Icon name="mdi:send-outline" size={18} />
+              <span id="submit-btn-text">{t("contact.form.submit")}</span>
+            </button>
+
+            <!-- Direct WhatsApp Secondary Action -->
+            <button
+              type="button"
+              id="submit-whatsapp-btn"
+              class="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl border border-emerald-600/30 bg-emerald-50 hover:bg-emerald-600 hover:text-white text-emerald-800 text-sm font-semibold transition-all cursor-pointer"
             >
               <Icon name="cib:whatsapp" size={18} />
               <span>{t("contact.form.submit-whatsapp")}</span>
             </button>
-
-            <button
-              type="button"
-              id="submit-email-btn"
-              class="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl border border-primary/30 bg-primary/5 hover:bg-primary hover:text-white text-primary text-sm font-semibold transition-all cursor-pointer"
-            >
-              <Icon name="mdi:email-send-outline" size={18} />
-              <span>{t("contact.form.submit-email")}</span>
-            </button>
           </div>
 
-          <!-- Feedback Banner -->
+          <!-- Success Feedback Banner -->
           <div
             id="contact-feedback"
-            class="hidden rounded-xl bg-emerald-50 border border-emerald-300 text-emerald-900 px-4 py-3 text-xs sm:text-sm font-medium"
+            class="hidden rounded-xl bg-emerald-50 border border-emerald-300 text-emerald-900 px-4 py-3 text-xs sm:text-sm font-medium flex items-center gap-2"
           >
-            {t("contact.form.success")}
+            <Icon name="mdi:check-circle" size={20} class="text-emerald-600 shrink-0" />
+            <span>{t("contact.form.success")}</span>
+          </div>
+
+          <!-- Error Feedback Banner -->
+          <div
+            id="contact-error"
+            class="hidden rounded-xl bg-rose-50 border border-rose-300 text-rose-900 px-4 py-3 text-xs sm:text-sm font-medium flex items-center gap-2"
+          >
+            <Icon name="mdi:alert-circle" size={20} class="text-rose-600 shrink-0" />
+            <span>{t("contact.form.error")}</span>
           </div>
         </form>
       </div>
@@ -240,10 +269,15 @@ const interestOptions = [
 </section>
 
 <script>
-  // Handles contact form validation and dispatches structured project inquiries via WhatsApp or Email.
+  // Handles Netlify Forms submission via AJAX with fallback and direct WhatsApp contact option.
   const contactForm = document.querySelector("#contact-form") as HTMLFormElement | null;
-  const emailBtn = document.querySelector("#submit-email-btn") as HTMLButtonElement | null;
+  const netlifyBtn = document.querySelector("#submit-netlify-btn") as HTMLButtonElement | null;
+  const netlifyBtnText = document.querySelector("#submit-btn-text");
+  const whatsappBtn = document.querySelector("#submit-whatsapp-btn") as HTMLButtonElement | null;
   const feedbackBanner = document.querySelector("#contact-feedback");
+  const errorBanner = document.querySelector("#contact-error");
+
+  const originalBtnText = netlifyBtnText?.textContent || "Enviar Mensaje";
 
   function getFormValues() {
     const name = (document.querySelector("#contact-name") as HTMLInputElement)?.value.trim();
@@ -254,9 +288,49 @@ const interestOptions = [
     return { name, phone, email, interest, message };
   }
 
-  contactForm?.addEventListener("submit", (event) => {
+  // 1. Submit to Netlify Forms via standard URL-encoded POST
+  contactForm?.addEventListener("submit", async (event) => {
     event.preventDefault();
     if (!contactForm.reportValidity()) return;
+
+    feedbackBanner?.classList.add("hidden");
+    errorBanner?.classList.add("hidden");
+
+    if (netlifyBtn && netlifyBtnText) {
+      netlifyBtn.disabled = true;
+      netlifyBtnText.textContent = "...";
+    }
+
+    try {
+      const formData = new FormData(contactForm);
+      // Netlify requires form-name in the urlencoded payload
+      formData.set("form-name", "contact");
+
+      const response = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData as unknown as Record<string, string>).toString(),
+      });
+
+      if (response.ok) {
+        feedbackBanner?.classList.remove("hidden");
+        contactForm.reset();
+      } else {
+        errorBanner?.classList.remove("hidden");
+      }
+    } catch {
+      errorBanner?.classList.remove("hidden");
+    } finally {
+      if (netlifyBtn && netlifyBtnText) {
+        netlifyBtn.disabled = false;
+        netlifyBtnText.textContent = originalBtnText;
+      }
+    }
+  });
+
+  // 2. Secondary action: Direct WhatsApp message with prefilled structured text
+  whatsappBtn?.addEventListener("click", () => {
+    if (!contactForm || !contactForm.reportValidity()) return;
 
     const { name, phone, email, interest, message } = getFormValues();
     const text = [
@@ -270,27 +344,5 @@ const interestOptions = [
 
     const whatsappUrl = `https://wa.me/529932090424?text=${encodeURIComponent(text)}`;
     window.open(whatsappUrl, "_blank", "noopener,noreferrer");
-    feedbackBanner?.classList.remove("hidden");
-  });
-
-  emailBtn?.addEventListener("click", () => {
-    if (!contactForm || !contactForm.reportValidity()) return;
-
-    const { name, phone, email, interest, message } = getFormValues();
-    const subject = `Contacto Web: ${interest} - ${name}`;
-    const body = [
-      `Hola Luis,`,
-      ``,
-      `Nombre: ${name}`,
-      `Teléfono / WhatsApp: ${phone}`,
-      `Correo: ${email}`,
-      `Interés: ${interest}`,
-      ``,
-      `Detalles del proyecto:`,
-      `${message}`,
-    ].join("\n");
-
-    window.location.href = `mailto:luis.urruela@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    feedbackBanner?.classList.remove("hidden");
   });
 </script>
