@@ -1,50 +1,51 @@
 ---
+// Responsive sticky navigation bar with anchor links, language switcher, and mobile drawer.
 import { Icon } from "astro-icon/components";
-import { getRelativeLocaleUrl } from "astro:i18n";
 import { useTranslations } from "../../i18n/utils";
 import { languages } from "../../i18n/ui";
 
-const currentLanguage = Astro.currentLocale || "es";
-const translateOptions = useTranslations(
-  currentLanguage as keyof typeof languages
-);
+const currentLanguage = (Astro.currentLocale || "es") as keyof typeof languages;
+const t = useTranslations(currentLanguage);
+
+const homeHref = currentLanguage === "en" ? "/en/" : "/";
+const altLangHref = currentLanguage === "en" ? "/" : "/en/";
+const altLangLabel = currentLanguage === "en" ? "ES" : "EN";
 
 const menuLinks = [
-  {
-    name: translateOptions("nav.about"),
-    url: getRelativeLocaleUrl(currentLanguage, "about"),
-  },
-  {
-    name: translateOptions("nav.services"),
-    url: getRelativeLocaleUrl(currentLanguage, "services"),
-  },
-  {
-    name: translateOptions("nav.contact"),
-    url: getRelativeLocaleUrl(currentLanguage, "contact"),
-  },
+  { name: t("nav.home"), url: "#inicio" },
+  { name: t("nav.services"), url: "#servicios" },
+  { name: t("nav.products"), url: "#productos" },
+  { name: t("nav.contact"), url: "#contacto" },
 ];
 ---
 
-<header
-  class="flex-col items-center"
-  data-aos="fade-down"
-  data-aos-duration="3000"
-  data-aos-delay="6000"
->
-  <!-- Desktop Navbar -->
-  <nav
-    class="hidden container mx-auto md:flex items-center justify-between py-4 px-6 md:px-0"
-  >
-    <div class="logo text-2xl font-bold text-black/85 flex items-center">
-      <a href="./"><Icon name="logo" size={42} class="text-primary mr-2" /></a>
-    </div>
-    <ul class="hidden md:flex gap-5 text-black">
+<header class="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-md border-b border-black/5">
+  <nav class="max-w-6xl mx-auto flex items-center justify-between py-3.5 px-5 md:px-8">
+    <!-- Brand Logo -->
+    <a href={homeHref} class="flex items-center gap-2.5 group">
+      <Icon
+        name="logo"
+        size={38}
+        class="text-primary transition-transform duration-300 group-hover:scale-105"
+      />
+      <div class="flex flex-col leading-none">
+        <span class="font-heading text-lg md:text-xl text-black/90 tracking-wide">
+          Luis Urruela
+        </span>
+        <span class="text-[11px] font-medium text-secondary tracking-wider uppercase">
+          Full-Stack & Apps
+        </span>
+      </div>
+    </a>
+
+    <!-- Desktop Navigation Links -->
+    <ul class="hidden md:flex items-center gap-7">
       {
         menuLinks.map((link) => (
-          <li class="hover-underline flex items-center justify-center hover:bg-primary/10 px-2 transition-all duration-300 ease-in-out">
+          <li>
             <a
               href={link.url}
-              class="hover:text-primary-dark font-semibold text-sm transition-alln duration-300 ease-in-out text-black/60"
+              class="nav-link text-sm font-medium text-black/70 hover:text-primary transition-colors duration-200 py-1"
             >
               {link.name}
             </a>
@@ -52,104 +53,143 @@ const menuLinks = [
         ))
       }
     </ul>
+
+    <!-- Desktop Actions -->
+    <div class="hidden md:flex items-center gap-3">
+      <a
+        href={altLangHref}
+        class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold border border-black/10 text-black/70 hover:border-primary hover:text-primary transition-colors"
+        title={t("nav.language")}
+      >
+        <Icon name="mdi:translate" size={15} />
+        <span>{altLangLabel}</span>
+      </a>
+      <a
+        href="#contacto"
+        class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold bg-primary text-white hover:bg-primary-dark transition-all duration-200 shadow-sm hover:shadow-md"
+      >
+        <Icon name="mdi:message-fast-outline" size={16} />
+        <span>{t("nav.cta")}</span>
+      </a>
+    </div>
+
+    <!-- Mobile Menu Trigger -->
+    <div class="flex md:hidden items-center gap-2">
+      <a
+        href={altLangHref}
+        class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold border border-black/10 text-black/75"
+      >
+        <Icon name="mdi:translate" size={14} />
+        <span>{altLangLabel}</span>
+      </a>
+      <button
+        id="menu-button"
+        type="button"
+        aria-label={t("nav.menu")}
+        class="p-2 rounded-lg text-black/75 hover:bg-black/5 cursor-pointer"
+      >
+        <Icon name="mdi:menu" size={28} />
+      </button>
+    </div>
   </nav>
 </header>
 
-<!-- Mobile Navbar -->
-<nav
-  class="container mx-auto flex md:hidden items-center justify-between py-4 px-6 md:px-0"
->
-  <div class="logo text-lg font-bold text-black/85 flex items-center">
-    <Icon name="logo" size={32} class="text-primary" />
-  </div>
-  <div id="menu-button" class="text-gray-500 cursor-pointer">
-    <Icon name="mdi:menu" size={32} />
-  </div>
-</nav>
-
+<!-- Mobile Drawer -->
 <aside
-  class="bg-secondary/75 w-[75%] h-screen fixed top-0 right-0 z-10 md:hidden border-l border-secondary shadow-lg transform transition-transform duration-300 ease-in-out translate-x-full"
+  id="mobile-drawer"
+  class="bg-white/95 backdrop-blur-xl w-[80%] max-w-xs h-screen fixed top-0 right-0 z-50 md:hidden border-l border-black/10 shadow-2xl transform transition-transform duration-300 ease-in-out translate-x-full flex flex-col justify-between p-6"
 >
-  <div
-    class="flex-col items-center justify-between p-4 border-b border-secondary/5"
-  >
-    <div class="flex items-center justify-between">
-      <div class="text-white/45 text-base font-black">MENÚ</div>
-      <div
+  <div>
+    <div class="flex items-center justify-between pb-4 border-b border-black/10">
+      <span class="font-heading text-lg text-primary">{t("nav.menu")}</span>
+      <button
         id="close-button"
-        class="text-white/45 hover:text-primary-dark transition duration-300 ease-in-out cursor-pointer"
+        type="button"
+        aria-label="Close menu"
+        class="p-1.5 rounded-lg text-black/60 hover:text-primary cursor-pointer"
       >
-        <Icon name="mdi:close" size={32} />
-      </div>
+        <Icon name="mdi:close" size={26} />
+      </button>
     </div>
-    <div>
-      <ul>
-        <li><a href="#" class="text-white/75">Acerca de</a></li>
-        <li><a href="#" class="text-white/75">Servicios</a></li>
-        <li><a href="#" class="text-white/75">Contacto</a></li>
-      </ul>
-    </div>
+
+    <ul class="mt-6 flex flex-col gap-3">
+      {
+        menuLinks.map((link) => (
+          <li>
+            <a
+              href={link.url}
+              class="mobile-nav-link block py-2.5 px-3 rounded-xl text-base font-medium text-black/80 hover:bg-primary/10 hover:text-primary transition-colors"
+            >
+              {link.name}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+
+  <div class="pt-4 border-t border-black/10">
+    <a
+      href="https://wa.me/529932090424?text=Hola%20Luis%2C%20me%20interesa%20tu%20servicio"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="w-full py-3 px-4 rounded-xl bg-primary text-white text-sm font-semibold flex items-center justify-center gap-2 shadow-md"
+    >
+      <Icon name="cib:whatsapp" size={18} />
+      <span>WhatsApp Directo</span>
+    </a>
   </div>
 </aside>
 
 <div
   id="overlay"
-  class="w-full h-screen bg-white/65 backdrop-blur-xs fixed top-0 left-0 z-0 hidden transition-opacity duration-300 ease-in-out"
->
-</div>
+  class="w-full h-screen bg-black/30 backdrop-blur-xs fixed top-0 left-0 z-40 hidden transition-opacity duration-300 ease-in-out md:hidden"
+/>
 
 <script>
   const menuButton = document.querySelector("#menu-button");
   const closeButton = document.querySelector("#close-button");
-  const asideMenu = document.querySelector("aside");
+  const mobileDrawer = document.querySelector("#mobile-drawer");
   const overlay = document.querySelector("#overlay");
+  const mobileLinks = document.querySelectorAll(".mobile-nav-link");
 
   function openMenu() {
-    if (!asideMenu || !overlay) return;
-    asideMenu.classList.remove("translate-x-full"); // Mueve hacia la vista
-    overlay.classList.remove("hidden"); // Muestra el overlay
+    if (!mobileDrawer || !overlay) return;
+    mobileDrawer.classList.remove("translate-x-full");
+    overlay.classList.remove("hidden");
   }
 
   function closeMenu() {
-    if (!asideMenu || !overlay) return;
-    asideMenu.classList.add("translate-x-full"); // Mueve fuera de la vista
-    overlay.classList.add("hidden"); // Oculta el overlay
+    if (!mobileDrawer || !overlay) return;
+    mobileDrawer.classList.add("translate-x-full");
+    overlay.classList.add("hidden");
   }
 
-  if (asideMenu && overlay) {
-    menuButton?.addEventListener("click", openMenu);
-    closeButton?.addEventListener("click", closeMenu);
-    overlay.addEventListener("click", closeMenu);
-  }
+  menuButton?.addEventListener("click", openMenu);
+  closeButton?.addEventListener("click", closeMenu);
+  overlay?.addEventListener("click", closeMenu);
+  mobileLinks.forEach((link) => link.addEventListener("click", closeMenu));
 </script>
 
 <style>
-  .hover-underline {
+  .nav-link {
     position: relative;
-    display: inline-block;
   }
 
-  .hover-underline::after,
-  .hover-underline::before {
+  .nav-link::after {
     content: "";
     position: absolute;
+    bottom: -2px;
+    left: 0;
     width: 100%;
     height: 2px;
-    background: linear-gradient(to right, #cde7f0, #5e42a6);
-    bottom: -5px;
-    left: 0;
+    background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
     transform: scaleX(0);
     transform-origin: center;
-    transition: transform 0.4s ease-out;
+    transition: transform 0.25s ease-out;
   }
 
-  .hover-underline::before {
-    top: -5px;
-    transform-origin: center;
-  }
-
-  .hover-underline:hover::after,
-  .hover-underline:hover::before {
+  .nav-link:hover::after {
     transform: scaleX(1);
   }
 </style>

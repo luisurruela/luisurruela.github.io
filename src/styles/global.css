@@ -11,33 +11,30 @@
 @font-face {
   font-family: "FunnelDisplay-VariableFont_wght";
   src: url("/fonts/FunnelDisplay-VariableFont_wght.ttf") format("truetype");
-  font-weight: normal;
+  font-weight: 100 900;
   font-style: normal;
   font-display: swap;
 }
 
-body,
 html {
+  scroll-behavior: smooth;
   background-color: var(--color-white);
 }
 
 body {
   font-family: "FunnelDisplay-VariableFont_wght", sans-serif;
-  line-height: 1.5;
+  line-height: 1.6;
   color: var(--color-black);
+  background-color: var(--color-white);
   margin: 0;
   padding: 0;
-}
-
-p {
-  margin-bottom: 15px;
 }
 
 @theme {
   --color-primary: #5e42a6;
   --color-primary-dark: #493382;
   --color-secondary: #02829b;
-  --color-tertiary: ##cde7f0;
+  --color-tertiary: #cde7f0;
   --color-black: #181818;
   --color-white: #fdfdfe;
 

@@ -1,0 +1,116 @@
+---
+// Freelance services section displaying modular service cards with feature checklists and direct quote triggers.
+import { Icon } from "astro-icon/components";
+import { useTranslations } from "../../i18n/utils";
+import { languages, freelanceServices } from "../../i18n/ui";
+
+const currentLanguage = (Astro.currentLocale || "es") as keyof typeof languages;
+const t = useTranslations(currentLanguage);
+const services = freelanceServices[currentLanguage];
+---
+
+<section id="servicios" class="relative py-20 md:py-28 px-5 md:px-8">
+  <div class="max-w-6xl mx-auto">
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto mb-14" data-aos="fade-up">
+      <span
+        class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-secondary/10 border border-secondary/25 text-secondary text-xs font-semibold uppercase tracking-wider mb-3"
+      >
+        <Icon name="mdi:code-braces-box" size={16} />
+        <span>{t("services.badge")}</span>
+      </span>
+      <h2 class="text-2xl sm:text-3xl md:text-5xl font-heading text-black/90 leading-tight mb-4">
+        {t("services.title")}
+      </h2>
+      <p class="text-sm sm:text-base text-black/60 leading-relaxed">
+        {t("services.subtitle")}
+      </p>
+    </div>
+
+    <!-- Services Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+      {
+        services.map((service, index) => {
+          const isPrimary = service.accentColor === "primary";
+          const iconBg = isPrimary
+            ? "bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white"
+            : "bg-secondary/10 text-secondary group-hover:bg-secondary group-hover:text-white";
+          const borderAccent = isPrimary
+            ? "hover:border-primary/40"
+            : "hover:border-secondary/40";
+          const checkColor = isPrimary ? "text-primary" : "text-secondary";
+
+          return (
+            <article
+              data-aos="fade-up"
+              data-aos-delay={index * 100}
+              class={`group relative rounded-2xl bg-white/85 backdrop-blur-md border border-black/10 p-6 sm:p-8 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between ${borderAccent}`}
+            >
+              <div>
+                <div class="flex items-start justify-between gap-4 mb-5">
+                  <div
+                    class={`w-14 h-14 rounded-2xl flex items-center justify-center transition-colors duration-300 shadow-xs ${iconBg}`}
+                  >
+                    <Icon name={service.icon} size={30} />
+                  </div>
+                  <span class="text-xs font-bold uppercase tracking-widest text-black/25">
+                    0{index + 1}
+                  </span>
+                </div>
+
+                <h3 class="text-xl sm:text-2xl font-bold text-black/90 mb-3 group-hover:text-primary transition-colors">
+                  {service.title}
+                </h3>
+
+                <p class="text-sm sm:text-base text-black/65 leading-relaxed mb-6">
+                  {service.description}
+                </p>
+
+                <ul class="space-y-2.5 mb-8">
+                  {service.features.map((feature) => (
+                    <li class="flex items-start gap-2.5 text-xs sm:text-sm text-black/75">
+                      <Icon
+                        name="mdi:check-circle"
+                        size={18}
+                        class={`shrink-0 mt-0.5 ${checkColor}`}
+                      />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div class="pt-4 border-t border-black/5">
+                <a
+                  href="#contacto"
+                  data-select-interest={service.interestValue}
+                  class="service-quote-btn inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary-dark group-hover:translate-x-1 transition-all duration-200"
+                >
+                  <span>{t("services.cta")}</span>
+                  <Icon name="mdi:arrow-right" size={18} />
+                </a>
+              </div>
+            </article>
+          );
+        })
+      }
+    </div>
+  </div>
+</section>
+
+<script>
+  // Pre-selects the corresponding interest option in the contact form when clicking a service CTA.
+  const quoteButtons = document.querySelectorAll(".service-quote-btn");
+  quoteButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const interest = button.getAttribute("data-select-interest");
+      const interestSelect = document.querySelector(
+        "#contact-interest"
+      ) as HTMLSelectElement | null;
+      if (interest && interestSelect) {
+        interestSelect.value = interest;
+        interestSelect.dispatchEvent(new Event("change"));
+      }
+    });
+  });
+</script>

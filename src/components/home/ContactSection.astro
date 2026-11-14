@@ -1,0 +1,296 @@
+---
+// Contact section featuring an interactive project inquiry form with instant WhatsApp and Email dispatch.
+import { Icon } from "astro-icon/components";
+import { useTranslations } from "../../i18n/utils";
+import { languages } from "../../i18n/ui";
+
+const currentLanguage = (Astro.currentLocale || "es") as keyof typeof languages;
+const t = useTranslations(currentLanguage);
+
+const interestOptions = [
+  t("contact.form.interest.restaurant"),
+  t("contact.form.interest.web"),
+  t("contact.form.interest.system"),
+  t("contact.form.interest.mobile"),
+  t("contact.form.interest.other"),
+];
+---
+
+<section id="contacto" class="relative py-20 md:py-28 px-5 md:px-8">
+  <div class="max-w-6xl mx-auto">
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto mb-14" data-aos="fade-up">
+      <span
+        class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-primary/10 border border-primary/25 text-primary text-xs font-semibold uppercase tracking-wider mb-3"
+      >
+        <Icon name="mdi:email-fast-outline" size={16} />
+        <span>{t("contact.badge")}</span>
+      </span>
+      <h2 class="text-2xl sm:text-3xl md:text-5xl font-heading text-black/90 leading-tight mb-4">
+        {t("contact.title")}
+      </h2>
+      <p class="text-sm sm:text-base text-black/60 leading-relaxed">
+        {t("contact.subtitle")}
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+      <!-- Left Column: Direct Contact Cards -->
+      <div
+        class="lg:col-span-5 space-y-5 rounded-3xl bg-gradient-to-br from-primary via-primary-dark to-slate-900 text-white p-7 sm:p-9 shadow-xl"
+        data-aos="fade-right"
+      >
+        <div>
+          <h3 class="text-xl sm:text-2xl font-heading mb-2">
+            {t("contact.info.title")}
+          </h3>
+          <p class="text-xs sm:text-sm text-white/75 leading-relaxed">
+            {t("contact.info.desc")}
+          </p>
+        </div>
+
+        <div class="space-y-4 pt-2">
+          <a
+            href="https://wa.me/529932090424?text=Hola%20Luis%2C%20me%20interesa%20platicar%20sobre%20un%20proyecto"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center gap-4 p-4 rounded-2xl bg-white/10 hover:bg-white/15 border border-white/10 transition-colors"
+          >
+            <div class="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-300 flex items-center justify-center shrink-0">
+              <Icon name="cib:whatsapp" size={24} />
+            </div>
+            <div>
+              <div class="text-xs font-semibold uppercase tracking-wider text-white/60">
+                {t("contact.info.whatsapp.label")}
+              </div>
+              <div class="text-sm sm:text-base font-bold text-white">
+                +52 993 209 0424
+              </div>
+            </div>
+          </a>
+
+          <a
+            href="mailto:luis.urruela@gmail.com"
+            class="flex items-center gap-4 p-4 rounded-2xl bg-white/10 hover:bg-white/15 border border-white/10 transition-colors"
+          >
+            <div class="w-12 h-12 rounded-xl bg-amber-400/20 text-amber-300 flex items-center justify-center shrink-0">
+              <Icon name="mdi:email-outline" size={24} />
+            </div>
+            <div>
+              <div class="text-xs font-semibold uppercase tracking-wider text-white/60">
+                {t("contact.info.email.label")}
+              </div>
+              <div class="text-sm sm:text-base font-bold text-white break-all">
+                luis.urruela@gmail.com
+              </div>
+            </div>
+          </a>
+
+          <div class="flex items-center gap-4 p-4 rounded-2xl bg-white/10 border border-white/10">
+            <div class="w-12 h-12 rounded-xl bg-sky-400/20 text-sky-300 flex items-center justify-center shrink-0">
+              <Icon name="mdi:map-marker-radius-outline" size={24} />
+            </div>
+            <div>
+              <div class="text-xs font-semibold uppercase tracking-wider text-white/60">
+                {t("contact.info.location.label")}
+              </div>
+              <div class="text-xs sm:text-sm font-medium text-white/90">
+                {t("contact.info.location.value")}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Interactive Contact Form -->
+      <div
+        class="lg:col-span-7 rounded-3xl bg-white/90 backdrop-blur-md border border-black/10 p-6 sm:p-9 shadow-xl"
+        data-aos="fade-left"
+      >
+        <form id="contact-form" class="space-y-5">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <!-- Full Name -->
+            <div>
+              <label
+                for="contact-name"
+                class="block text-xs sm:text-sm font-semibold text-black/80 mb-1.5"
+              >
+                {t("contact.form.name")} *
+              </label>
+              <input
+                id="contact-name"
+                name="name"
+                type="text"
+                required
+                placeholder={t("contact.form.name.placeholder")}
+                class="w-full px-4 py-3 rounded-xl border border-black/15 bg-white text-sm text-black focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all"
+              />
+            </div>
+
+            <!-- Phone / WhatsApp -->
+            <div>
+              <label
+                for="contact-phone"
+                class="block text-xs sm:text-sm font-semibold text-black/80 mb-1.5"
+              >
+                {t("contact.form.phone")} *
+              </label>
+              <input
+                id="contact-phone"
+                name="phone"
+                type="tel"
+                required
+                placeholder={t("contact.form.phone.placeholder")}
+                class="w-full px-4 py-3 rounded-xl border border-black/15 bg-white text-sm text-black focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all"
+              />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <!-- Email -->
+            <div>
+              <label
+                for="contact-email"
+                class="block text-xs sm:text-sm font-semibold text-black/80 mb-1.5"
+              >
+                {t("contact.form.email")} *
+              </label>
+              <input
+                id="contact-email"
+                name="email"
+                type="email"
+                required
+                placeholder={t("contact.form.email.placeholder")}
+                class="w-full px-4 py-3 rounded-xl border border-black/15 bg-white text-sm text-black focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all"
+              />
+            </div>
+
+            <!-- Project / Product Interest -->
+            <div>
+              <label
+                for="contact-interest"
+                class="block text-xs sm:text-sm font-semibold text-black/80 mb-1.5"
+              >
+                {t("contact.form.interest")} *
+              </label>
+              <select
+                id="contact-interest"
+                name="interest"
+                class="w-full px-4 py-3 rounded-xl border border-black/15 bg-white text-sm text-black focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all"
+              >
+                {
+                  interestOptions.map((option) => (
+                    <option value={option}>{option}</option>
+                  ))
+                }
+              </select>
+            </div>
+          </div>
+
+          <!-- Message -->
+          <div>
+            <label
+              for="contact-message"
+              class="block text-xs sm:text-sm font-semibold text-black/80 mb-1.5"
+            >
+              {t("contact.form.message")} *
+            </label>
+            <textarea
+              id="contact-message"
+              name="message"
+              rows={4}
+              required
+              placeholder={t("contact.form.message.placeholder")}
+              class="w-full px-4 py-3 rounded-xl border border-black/15 bg-white text-sm text-black focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all resize-y"
+            />
+          </div>
+
+          <!-- Submit Actions -->
+          <div class="flex flex-col sm:flex-row gap-3 pt-2">
+            <button
+              type="submit"
+              data-submit-channel="whatsapp"
+              class="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-bold shadow-lg shadow-emerald-600/20 transition-all cursor-pointer"
+            >
+              <Icon name="cib:whatsapp" size={18} />
+              <span>{t("contact.form.submit-whatsapp")}</span>
+            </button>
+
+            <button
+              type="button"
+              id="submit-email-btn"
+              class="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl border border-primary/30 bg-primary/5 hover:bg-primary hover:text-white text-primary text-sm font-semibold transition-all cursor-pointer"
+            >
+              <Icon name="mdi:email-send-outline" size={18} />
+              <span>{t("contact.form.submit-email")}</span>
+            </button>
+          </div>
+
+          <!-- Feedback Banner -->
+          <div
+            id="contact-feedback"
+            class="hidden rounded-xl bg-emerald-50 border border-emerald-300 text-emerald-900 px-4 py-3 text-xs sm:text-sm font-medium"
+          >
+            {t("contact.form.success")}
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Handles contact form validation and dispatches structured project inquiries via WhatsApp or Email.
+  const contactForm = document.querySelector("#contact-form") as HTMLFormElement | null;
+  const emailBtn = document.querySelector("#submit-email-btn") as HTMLButtonElement | null;
+  const feedbackBanner = document.querySelector("#contact-feedback");
+
+  function getFormValues() {
+    const name = (document.querySelector("#contact-name") as HTMLInputElement)?.value.trim();
+    const phone = (document.querySelector("#contact-phone") as HTMLInputElement)?.value.trim();
+    const email = (document.querySelector("#contact-email") as HTMLInputElement)?.value.trim();
+    const interest = (document.querySelector("#contact-interest") as HTMLSelectElement)?.value;
+    const message = (document.querySelector("#contact-message") as HTMLTextAreaElement)?.value.trim();
+    return { name, phone, email, interest, message };
+  }
+
+  contactForm?.addEventListener("submit", (event) => {
+    event.preventDefault();
+    if (!contactForm.reportValidity()) return;
+
+    const { name, phone, email, interest, message } = getFormValues();
+    const text = [
+      `¡Hola Luis! Me pongo en contacto desde tu sitio web:`,
+      `• *Nombre:* ${name}`,
+      `• *Teléfono:* ${phone}`,
+      `• *Correo:* ${email}`,
+      `• *Interés:* ${interest}`,
+      `• *Mensaje:* ${message}`,
+    ].join("\n");
+
+    const whatsappUrl = `https://wa.me/529932090424?text=${encodeURIComponent(text)}`;
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+    feedbackBanner?.classList.remove("hidden");
+  });
+
+  emailBtn?.addEventListener("click", () => {
+    if (!contactForm || !contactForm.reportValidity()) return;
+
+    const { name, phone, email, interest, message } = getFormValues();
+    const subject = `Contacto Web: ${interest} - ${name}`;
+    const body = [
+      `Hola Luis,`,
+      ``,
+      `Nombre: ${name}`,
+      `Teléfono / WhatsApp: ${phone}`,
+      `Correo: ${email}`,
+      `Interés: ${interest}`,
+      ``,
+      `Detalles del proyecto:`,
+      `${message}`,
+    ].join("\n");
+
+    window.location.href = `mailto:luis.urruela@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    feedbackBanner?.classList.remove("hidden");
+  });
+</script>

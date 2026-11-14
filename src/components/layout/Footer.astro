@@ -1,0 +1,87 @@
+---
+// Site footer displaying brand summary, quick section navigation, and social media links.
+import { Icon } from "astro-icon/components";
+import { useTranslations } from "../../i18n/utils";
+import { languages } from "../../i18n/ui";
+import SocialLinks from "../shared/SocialLinks.astro";
+
+const currentLanguage = (Astro.currentLocale || "es") as keyof typeof languages;
+const t = useTranslations(currentLanguage);
+
+const currentYear = new Date().getFullYear();
+
+const navLinks = [
+  { name: t("nav.home"), url: "#inicio" },
+  { name: t("nav.services"), url: "#servicios" },
+  { name: t("nav.products"), url: "#productos" },
+  { name: t("nav.contact"), url: "#contacto" },
+];
+---
+
+<footer class="relative z-20 bg-slate-950 text-white border-t border-white/10 pt-14 pb-10 px-5 md:px-8">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-10 border-b border-white/10">
+      <!-- Brand & Tagline -->
+      <div class="md:col-span-5 space-y-4">
+        <a href="#inicio" class="inline-flex items-center gap-3">
+          <Icon name="logo" size={40} class="text-white" />
+          <div class="flex flex-col leading-none">
+            <span class="font-heading text-xl text-white tracking-wide">
+              Luis Urruela
+            </span>
+            <span class="text-[11px] font-semibold text-tertiary uppercase tracking-wider">
+              Full-Stack Developer & Apps
+            </span>
+          </div>
+        </a>
+        <p class="text-xs sm:text-sm text-white/65 leading-relaxed max-w-sm">
+          {t("footer.tagline")}
+        </p>
+      </div>
+
+      <!-- Quick Navigation -->
+      <div class="md:col-span-3 space-y-3">
+        <h3 class="text-xs font-bold uppercase tracking-wider text-white/50">
+          {t("footer.navigation")}
+        </h3>
+        <ul class="space-y-2">
+          {
+            navLinks.map((link) => (
+              <li>
+                <a
+                  href={link.url}
+                  class="text-sm text-white/75 hover:text-tertiary transition-colors"
+                >
+                  {link.name}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <!-- Social Networks -->
+      <div class="md:col-span-4 space-y-4">
+        <h3 class="text-xs font-bold uppercase tracking-wider text-white/50">
+          {t("footer.social")}
+        </h3>
+        <SocialLinks variant="dark" align="start" />
+        <div class="text-xs text-white/55 space-y-1 pt-1">
+          <div>Instagram: <a href="https://instagram.com/luigidotdev" target="_blank" rel="noopener noreferrer" class="text-white/80 hover:underline">@luigidotdev</a></div>
+          <div>LinkedIn: <a href="https://linkedin.com/in/luisurruela" target="_blank" rel="noopener noreferrer" class="text-white/80 hover:underline">/in/luisurruela</a></div>
+          <div>Email: <a href="mailto:luis.urruela@gmail.com" class="text-white/80 hover:underline">luis.urruela@gmail.com</a></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Copyright -->
+    <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/50">
+      <div>
+        © {currentYear} Luis Urruela. {t("footer.rights")}
+      </div>
+      <div>
+        {t("footer.made-with")}
+      </div>
+    </div>
+  </div>
+</footer>

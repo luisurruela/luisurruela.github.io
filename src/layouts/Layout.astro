@@ -1,38 +1,54 @@
 ---
+// Root document layout providing global navigation, SEO metadata, AOS animations, and footer.
 import Navbar from "../components/layout/Navbar.astro";
+import Footer from "../components/layout/Footer.astro";
 import "../styles/global.css";
 import "aos/dist/aos.css";
 
 interface Props {
   title?: string;
+  description?: string;
 }
 
-const language = Astro.currentLocale;
+const language = Astro.currentLocale || "es";
 
-const {
-  title = "Luis Urruela | Diseño Web, Sitemas a la medida y Móvil Apps",
-} = Astro.props;
+const defaultTitle =
+  language === "en"
+    ? "Luis Urruela | Web Development, Custom Systems & Restaurant Apps"
+    : "Luis Urruela | Diseño Web, Sistemas a la Medida y App para Restaurantes";
+
+const defaultDescription =
+  language === "en"
+    ? "Full-Stack Developer & Freelancer with 25+ years of experience building custom web systems, websites, and smart digital menu apps for restaurants."
+    : "Desarrollador Full-Stack y Freelancer con más de 25 años de experiencia creando sitios web, sistemas a la medida y apps de menú digital y pedidos por WhatsApp para restaurantes.";
+
+const { title = defaultTitle, description = defaultDescription } = Astro.props;
 ---
 
+<!doctype html>
 <html lang={language}>
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="overflow-x-hidden">
-    <header class="relative z-20">
-      <Navbar />
-    </header>
-    <main class="relative z-10">
+  <body class="overflow-x-hidden flex flex-col min-h-screen">
+    <Navbar />
+    <main class="relative z-10 flex-1">
       <slot />
     </main>
+    <Footer />
   </body>
 </html>
 
 <script>
   import AOS from "aos";
-  AOS.init();
+  AOS.init({
+    duration: 750,
+    once: true,
+    offset: 60,
+  });
 </script>

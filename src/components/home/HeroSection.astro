@@ -1,0 +1,140 @@
+---
+// Hero presentation section introducing Luis Urruela, core value proposition, and quick navigation CTAs.
+import { Icon } from "astro-icon/components";
+import { useTranslations } from "../../i18n/utils";
+import { languages } from "../../i18n/ui";
+import Avatar from "./Avatar.astro";
+import SocialLinks from "../shared/SocialLinks.astro";
+
+const currentLanguage = (Astro.currentLocale || "es") as keyof typeof languages;
+const t = useTranslations(currentLanguage);
+---
+
+<section
+  id="inicio"
+  class="relative pt-10 pb-20 md:pt-16 md:pb-28 px-5 md:px-8 max-w-5xl mx-auto text-center"
+>
+  <!-- Availability Badge -->
+  <div
+    class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs md:text-sm font-medium mb-6"
+    data-aos="fade-down"
+    data-aos-duration="800"
+  >
+    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
+    <span>{t("hero.badge")}</span>
+  </div>
+
+  <!-- Avatar -->
+  <div data-aos="zoom-in" data-aos-duration="900">
+    <Avatar />
+  </div>
+
+  <!-- Greeting -->
+  <p
+    class="text-base md:text-2xl text-black/70 font-medium mb-2"
+    data-aos="fade-up"
+    data-aos-duration="900"
+    data-aos-delay="100"
+  >
+    {t("hero.greeting")} <span class="inline-block animate-bounce">👋</span>
+  </p>
+
+  <!-- Main Heading -->
+  <h1
+    class="text-3xl sm:text-4xl md:text-6xl font-heading text-black/90 leading-tight max-w-4xl mx-auto mb-5"
+    data-aos="fade-up"
+    data-aos-duration="900"
+    data-aos-delay="200"
+  >
+    <span class="bg-gradient-to-r from-primary via-primary-dark to-secondary bg-clip-text text-transparent">
+      {t("hero.role")}
+    </span>
+  </h1>
+
+  <!-- Brief Presentation -->
+  <p
+    class="text-black/65 font-normal text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed mb-8"
+    data-aos="fade-up"
+    data-aos-duration="900"
+    data-aos-delay="300"
+  >
+    {t("hero.description")}
+  </p>
+
+  <!-- CTA Buttons -->
+  <div
+    class="flex flex-col sm:flex-row items-center justify-center gap-3.5 mb-10"
+    data-aos="fade-up"
+    data-aos-duration="900"
+    data-aos-delay="400"
+  >
+    <a
+      href="#contacto"
+      class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl bg-primary text-white text-sm font-semibold shadow-lg shadow-primary/25 hover:bg-primary-dark hover:-translate-y-0.5 transition-all duration-200"
+    >
+      <Icon name="mdi:rocket-launch" size={18} />
+      <span>{t("hero.primary-cta")}</span>
+    </a>
+
+    <a
+      href="#servicios"
+      class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white/90 border border-secondary/40 text-secondary text-sm font-semibold hover:bg-secondary hover:text-white hover:-translate-y-0.5 transition-all duration-200 shadow-xs"
+    >
+      <Icon name="mdi:briefcase-check-outline" size={18} />
+      <span>{t("hero.secondary-cta")}</span>
+    </a>
+
+    <a
+      href="#productos"
+      class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-amber-500/10 border border-amber-600/30 text-amber-800 text-sm font-semibold hover:bg-amber-600 hover:text-white hover:-translate-y-0.5 transition-all duration-200"
+    >
+      <Icon name="mdi:silverware-fork-knife" size={18} />
+      <span>{t("hero.tertiary-cta")}</span>
+    </a>
+  </div>
+
+  <!-- Social Links -->
+  <div
+    class="mb-12"
+    data-aos="fade-up"
+    data-aos-duration="900"
+    data-aos-delay="500"
+  >
+    <SocialLinks />
+  </div>
+
+  <!-- Quick Highlights Bar -->
+  <div
+    class="grid grid-cols-3 gap-3 sm:gap-6 max-w-2xl mx-auto p-4 sm:p-6 rounded-2xl bg-white/80 backdrop-blur-md border border-black/5 shadow-sm"
+    data-aos="fade-up"
+    data-aos-duration="900"
+    data-aos-delay="600"
+  >
+    <div class="text-center">
+      <div class="font-heading text-2xl sm:text-3xl md:text-4xl text-primary">
+        {t("hero.stat1.value")}
+      </div>
+      <div class="text-[11px] sm:text-xs font-medium text-black/60 mt-1">
+        {t("hero.stat1.label")}
+      </div>
+    </div>
+
+    <div class="text-center border-x border-black/10 px-2">
+      <div class="font-heading text-2xl sm:text-3xl md:text-4xl text-secondary">
+        {t("hero.stat2.value")}
+      </div>
+      <div class="text-[11px] sm:text-xs font-medium text-black/60 mt-1">
+        {t("hero.stat2.label")}
+      </div>
+    </div>
+
+    <div class="text-center">
+      <div class="font-heading text-2xl sm:text-3xl md:text-4xl text-primary">
+        {t("hero.stat3.value")}
+      </div>
+      <div class="text-[11px] sm:text-xs font-medium text-black/60 mt-1">
+        {t("hero.stat3.label")}
+      </div>
+    </div>
+  </div>
+</section>

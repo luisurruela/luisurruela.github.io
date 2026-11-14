@@ -1,70 +1,95 @@
 ---
+// Reusable social media links bar supporting both light and dark surface variants.
 import { Icon } from "astro-icon/components";
+
+interface Props {
+  variant?: "light" | "dark";
+  align?: "center" | "start";
+}
+
+const { variant = "light", align = "center" } = Astro.props;
+
 const socialLinks = [
+  {
+    name: "WhatsApp",
+    url: "https://wa.me/529932090424?text=Hola%20Luis%2C%20me%20interesa%20platicar%20sobre%20un%20proyecto",
+    icon: "cib:whatsapp",
+    hoverBg: "#25D366",
+  },
   {
     name: "Instagram",
     url: "https://instagram.com/luigidotdev",
     icon: "cib:instagram",
+    hoverBg: "#E1306C",
   },
   {
     name: "LinkedIn",
     url: "https://linkedin.com/in/luisurruela",
     icon: "cib:linkedin-in",
+    hoverBg: "#0A66C2",
   },
   {
-    name: "Gmail",
+    name: "GitHub",
+    url: "https://github.com/luisurruela",
+    icon: "cib:github",
+    hoverBg: "#24292e",
+  },
+  {
+    name: "Email",
     url: "mailto:luis.urruela@gmail.com",
     icon: "cib:gmail",
+    hoverBg: "#EA4335",
   },
 ];
+
+const alignmentClass = align === "start" ? "justify-start" : "justify-center";
+const baseColorClass =
+  variant === "dark"
+    ? "text-white/80 bg-white/10 border-white/15 hover:text-white"
+    : "text-black/65 bg-white/80 border-black/10 hover:text-white shadow-xs";
 ---
 
-<div class="mt-4 md:mt-10 flex justify-center gap-3">
+<div class={`flex flex-wrap items-center gap-3 ${alignmentClass}`}>
   {
     socialLinks.map((link) => (
       <a
         href={link.url}
         target="_blank"
         rel="noopener noreferrer"
-        class="btn-swipe hover:text-white/50 text-black/50 w-[40px] h-[40px] rounded-full flex justify-center items-center transition-all duration-300 ease-in-out"
+        aria-label={link.name}
+        title={link.name}
+        style={`--social-hover-bg: ${link.hoverBg};`}
+        class={`social-btn w-11 h-11 rounded-full border flex justify-center items-center transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-md ${baseColorClass}`}
       >
-        <Icon name={link.icon} size={24} />
+        <Icon name={link.icon} size={20} />
       </a>
     ))
   }
 </div>
 
 <style>
-  .btn-swipe {
+  .social-btn {
     position: relative;
     overflow: hidden;
     z-index: 0;
   }
 
-  .btn-swipe::before {
+  .social-btn::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+    inset: 0;
     height: 0;
-    transition: height 0.2s ease-in-out;
+    width: 100%;
+    background-color: var(--social-hover-bg);
+    transition: height 0.25s ease-out;
     z-index: -1;
   }
 
-  .btn-swipe:hover::before {
+  .social-btn:hover::before {
     height: 100%;
   }
 
-  .btn-swipe:nth-child(1)::before {
-    background-color: #833ab4;
-  }
-
-  .btn-swipe:nth-child(2)::before {
-    background-color: #0e76a8;
-  }
-
-  .btn-swipe:nth-child(3)::before {
-    background-color: #c71610;
+  .social-btn:hover {
+    border-color: transparent;
   }
 </style>

@@ -1,6 +1,21 @@
-<img
-  src="images/luis-urruela.webp"
-  alt="Luis Urruela"
-  class="rounded-full w-[145px] md:w-[220px] mx-auto mb-3 md:mb-8 ring-4 ring-primary p-1"
-  loading="lazy"
-/>
+---
+// Profile avatar component with subtle gradient ring and online availability indicator.
+---
+
+<div class="relative inline-block mx-auto mb-4 md:mb-6">
+  <div
+    class="absolute -inset-1.5 rounded-full bg-gradient-to-tr from-primary via-secondary to-primary opacity-40 blur-md animate-pulse"
+  />
+  <img
+    src="/images/luis-urruela.webp"
+    alt="Luis Urruela"
+    width="180"
+    height="180"
+    class="relative rounded-full w-[135px] h-[135px] md:w-[175px] md:h-[175px] object-cover mx-auto ring-4 ring-white shadow-xl"
+    loading="eager"
+  />
+  <span
+    title="Disponible para proyectos"
+    class="absolute bottom-2 right-2 md:bottom-3 md:right-3 w-5 h-5 rounded-full bg-emerald-500 ring-4 ring-white shadow-sm"
+  />
+</div>
