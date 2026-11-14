@@ -91,7 +91,7 @@ export const ui = {
     "contact.form.submitting": "Enviando...",
     "contact.form.submit-whatsapp": "Enviar por WhatsApp",
     "contact.form.success":
-      "¡Mensaje enviado con éxito! Recibí tu solicitud en Netlify y te responderé a la brevedad.",
+      "¡Mensaje enviado con éxito! Recibí tu solicitud y te responderé a la brevedad.",
     "contact.form.error":
       "Ocurrió un problema al enviar el formulario. Por favor intenta de nuevo o escríbeme directamente por WhatsApp.",
     "contact.info.title": "Canales de contacto directo",
@@ -193,7 +193,7 @@ export const ui = {
     "contact.form.submitting": "Sending...",
     "contact.form.submit-whatsapp": "Send via WhatsApp",
     "contact.form.success":
-      "Message sent successfully! I received your inquiry via Netlify and will reply shortly.",
+      "Message sent successfully! I received your inquiry and will reply shortly.",
     "contact.form.error":
       "There was an issue sending your message. Please try again or reach out directly via WhatsApp.",
     "contact.info.title": "Direct contact channels",
