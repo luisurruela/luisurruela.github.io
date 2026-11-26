@@ -43,7 +43,7 @@ importers:
         version: 0.7.2(astro@5.16.4(@types/node@24.10.1)(jiti@2.4.2)(lightningcss@1.29.2)(rollup@4.53.3)(typescript@5.8.3))(bootstrap@5.3.5(@popperjs/core@2.11.8))
       astro-icon:
         specifier: ^1.1.5
-        version: 1.1.5
+        version: 1.1.5(debug@4.4.3)
       react:
         specifier: ^19.1.0
         version: 19.1.0
@@ -1246,8 +1246,8 @@ packages:
     resolution: {integrity: sha512-cgwlv/1iFQiFnU96XXgROh8xTeetsnJiDsTc7TYCLFd9+/WNkIqPTxiM/8pSd8VIrhXGTf1Ny1q1hquVqDJB5w==}
     engines: {node: '>= 4'}
 
-  dompurify@3.3.1:
-    resolution: {integrity: sha512-qkdCKzLNtrgPFP1Vo+98FRzJnBRGe4ffyCea9IwHB1fyxPOeNTHpLKYGd4Uk9xvNoH0ZoOjwZxNptyMwqrId1Q==}
+  dompurify@3.5.0:
+    resolution: {integrity: sha512-LYC0ZkE8P1V42JsRYTwMdme/2ET8SpOc5AA2eOFjP/IadvRd2fwiT4TVz5vkfy0XUx12aS2UaRkTnfVPNOv9vw==}
 
   domutils@3.2.2:
     resolution: {integrity: sha512-6kZKyUajlDuqlHKVX1w7gyslj9MPIXzIFiz/rGu35uC1wMi+kMhQwGhl4lt9unC9Vb9INnY9Z3/ZA3+FhASLaw==}
@@ -2181,6 +2181,7 @@ packages:
   tsconfck@3.1.6:
     resolution: {integrity: sha512-ks6Vjr/jEw0P1gmOVwutM3B7fWxoWBL2KRDb1JfqGVawBmO5UsvmWOQFGHBPl5yxYz4eERr19E6L7NMv+Fej4w==}
     engines: {node: ^18 || >=20}
+    deprecated: unmaintained
     hasBin: true
     peerDependencies:
       typescript: ^5.0.0
@@ -2782,12 +2783,12 @@ snapshots:
     dependencies:
       '@iconify/types': 2.0.0
 
-  '@iconify/tools@4.1.2':
+  '@iconify/tools@4.1.2(debug@4.4.3)':
     dependencies:
       '@iconify/types': 2.0.0
       '@iconify/utils': 2.3.0
       '@types/tar': 6.1.13
-      axios: 1.9.0
+      axios: 1.9.0(debug@4.4.3)
       cheerio: 1.0.0
       domhandler: 5.0.3
       extract-zip: 2.0.1
@@ -3322,7 +3323,7 @@ snapshots:
       astro: 5.16.4(@types/node@24.10.1)(jiti@2.4.2)(lightningcss@1.29.2)(rollup@4.53.3)(typescript@5.8.3)
       bootstrap: 5.3.5(@popperjs/core@2.11.8)
       clsx: 2.1.1
-      dompurify: 3.3.1
+      dompurify: 3.5.0
       marked: 15.0.12
       nanoid: 5.1.6
       title-case: 4.3.2
@@ -3331,9 +3332,9 @@ snapshots:
     dependencies:
       esbuild: 0.25.12
 
-  astro-icon@1.1.5:
+  astro-icon@1.1.5(debug@4.4.3):
     dependencies:
-      '@iconify/tools': 4.1.2
+      '@iconify/tools': 4.1.2(debug@4.4.3)
       '@iconify/types': 2.0.0
       '@iconify/utils': 2.3.0
     transitivePeerDependencies:
@@ -3444,9 +3445,9 @@ snapshots:
 
   asynckit@0.4.0: {}
 
-  axios@1.9.0:
+  axios@1.9.0(debug@4.4.3):
     dependencies:
-      follow-redirects: 1.15.9
+      follow-redirects: 1.15.9(debug@4.4.3)
       form-data: 4.0.2
       proxy-from-env: 1.1.0
     transitivePeerDependencies:
@@ -3660,7 +3661,7 @@ snapshots:
     dependencies:
       domelementtype: 2.3.0
 
-  dompurify@3.3.1:
+  dompurify@3.5.0:
     optionalDependencies:
       '@types/trusted-types': 2.0.7
 
@@ -3790,7 +3791,9 @@ snapshots:
 
   flattie@1.1.1: {}
 
-  follow-redirects@1.15.9: {}
+  follow-redirects@1.15.9(debug@4.4.3):
+    optionalDependencies:
+      debug: 4.4.3
 
   fontace@0.3.1:
     dependencies:
